@@ -26,7 +26,7 @@ function d3_geo_clipView(x0, y0, x1, y1) {
         listener = listener_;
         if ((segments = d3.merge(segments)).length) {
           listener.polygonStart();
-          d3_geo_clipPolygon(segments, compare, inside, interpolate, listener);
+          d3_geo_clipPolygonRejoin(segments, compare, inside, interpolate, listener);
           listener.polygonEnd();
         } else if (insidePolygon([x0, y0])) {
           listener.polygonStart(), listener.lineStart();

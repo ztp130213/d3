@@ -4,10 +4,11 @@ import "clip";
 import "point-in-polygon";
 
 var d3_geo_clipAntimeridian = d3_geo_clip(
-    d3_true,
+    d3_geo_clipAntimeridianVisible,
     d3_geo_clipAntimeridianLine,
     d3_geo_clipAntimeridianInterpolate,
-    d3_geo_clipAntimeridianPolygonContains);
+    d3_geo_clipAntimeridianPolygonContains,
+    d3_geo_clipAntimeridianSort);
 
 // Takes a line and cuts into visible segments. Return values:
 //   0: there were intersections or the line was empty.
@@ -26,7 +27,7 @@ function d3_geo_clipAntimeridianLine(listener) {
       clean = 1;
     },
     point: function(λ1, φ1) {
-      var sλ1 = λ1 > 0 ? π : -π,
+      var sλ1 = λ1 > 0 ? π - ε : -π,
           dλ = Math.abs(λ1 - λ0);
       if (Math.abs(dλ - π) < ε) { // line crosses a pole
         listener.point(λ0, φ0 = (φ0 + φ1) / 2 > 0 ? π / 2 : -π / 2);
@@ -76,19 +77,22 @@ function d3_geo_clipAntimeridianInterpolate(from, to, direction, listener) {
     φ = direction * π / 2;
     listener.point(-π,  φ);
     listener.point( 0,  φ);
-    listener.point( π,  φ);
-    listener.point( π,  0);
-    listener.point( π, -φ);
+    listener.point( π - ε,  φ);
+    listener.point( π - ε,  0);
+    listener.point( π - ε, -φ);
     listener.point( 0, -φ);
     listener.point(-π, -φ);
     listener.point(-π,  0);
     listener.point(-π,  φ);
   } else if (Math.abs(from[0] - to[0]) > ε) {
-    var s = (from[0] < to[0] ? 1 : -1) * π;
+    var s0 = -π,
+        s1 = π - ε,
+        s = (from[0] < to[0] ? 1 : -1) * π;
+    if (to[0] < from[0]) s0 = π - ε, s1 = -π;
     φ = direction * s / 2;
-    listener.point(-s, φ);
+    listener.point(s0, φ);
     listener.point( 0, φ);
-    listener.point( s, φ);
+    listener.point(s1, φ);
   } else {
     listener.point(to[0], to[1]);
   }
@@ -98,4 +102,15 @@ var d3_geo_clipAntimeridianPoint = [-π, 0];
 
 function d3_geo_clipAntimeridianPolygonContains(polygon) {
   return d3_geo_pointInPolygon(d3_geo_clipAntimeridianPoint, polygon);
+}
+
+// Intersection points are sorted along the clip edge. For both antimeridian
+// cutting and circle clipping, the same comparison is used.
+function d3_geo_clipAntimeridianSort(a, b) {
+  return ((a = a.point)[0] < 0 ? a[1] - π / 2 - ε : π / 2 - a[1])
+       - ((b = b.point)[0] < 0 ? b[1] - π / 2 - ε : π / 2 - b[1]);
+}
+
+function d3_geo_clipAntimeridianVisible(λ) {
+  return Math.abs(Math.abs(λ) - π) > ε;
 }

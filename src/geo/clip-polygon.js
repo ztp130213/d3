@@ -1,94 +1,143 @@
-import "../math/trigonometry";
+import "clip";
+import "distance";
+import "intersect";
+import "point-in-polygon";
 import "spherical";
 
-// General spherical polygon clipping algorithm: takes a polygon, cuts it into
-// visible line segments and rejoins the segments by interpolating along the
-// clip edge.
-function d3_geo_clipPolygon(segments, compare, inside, interpolate, listener) {
-  var subject = [],
-      clip = [];
+function d3_geo_clipPolygon(polygon) {
+  var segments = [];
 
-  segments.forEach(function(segment) {
-    if ((n = segment.length - 1) <= 0) return;
-    var n, p0 = segment[0], p1 = segment[n];
-
-    // If the first and last points of a segment are coincident, then treat as
-    // a closed ring.
-    // TODO if all rings are closed, then the winding order of the exterior
-    // ring should be checked.
-    if (d3_geo_sphericalEqual(p0, p1)) {
-      listener.lineStart();
-      for (var i = 0; i < n; ++i) listener.point((p0 = segment[i])[0], p0[1]);
-      listener.lineEnd();
-      return;
-    }
-
-    var a = {point: p0, points: segment, other: null, visited: false, entry: true, subject: true},
-        b = {point: p0, points: [p0], other: a, visited: false, entry: false, subject: false};
-    a.other = b;
-    subject.push(a);
-    clip.push(b);
-    a = {point: p1, points: [p1], other: null, visited: false, entry: false, subject: true};
-    b = {point: p1, points: [p1], other: a, visited: false, entry: true, subject: false};
-    a.other = b;
-    subject.push(a);
-    clip.push(b);
+  polygon = polygon.map(function(ring) {
+    var cartesian0;
+    ring = ring.map(function(point, i) {
+      var cartesian = d3_geo_cartesian(point = [point[0] * d3_radians, point[1] * d3_radians]);
+      if (i) segments.push(new d3_geo_intersectSegment(cartesian0, cartesian));
+      cartesian0 = cartesian;
+      return point;
+    });
+    ring.pop();
+    return ring;
   });
-  clip.sort(compare);
-  d3_geo_clipPolygonLinkCircular(subject);
-  d3_geo_clipPolygonLinkCircular(clip);
-  if (!subject.length) return;
 
-  if (inside) for (var i = 1, e = !inside(clip[0].point), n = clip.length; i < n; ++i) {
-    clip[i].entry = (e = !e);
+  var point = polygon[0][0];
+
+  return d3_geo_clip(visible, clipLine, interpolate, polygonContains, d3_geo_clipPolygonSort);
+
+  function visible(λ, φ) {
+    return d3_geo_pointInPolygon([λ, φ], polygon);
   }
 
-  var start = subject[0],
-      current,
-      points,
-      point;
-  while (1) {
-    // Find first unvisited intersection.
-    current = start;
-    while (current.visited) if ((current = current.next) === start) return;
-    points = current.points;
-    listener.lineStart();
-    do {
-      current.visited = current.other.visited = true;
-      if (current.entry) {
-        if (current.subject) {
-          for (var i = 0; i < points.length; i++) listener.point((point = points[i])[0], point[1]);
+  function clipLine(listener) {
+    var point0,
+        λ00,
+        φ00,
+        v00,
+        v0,
+        clean;
+    return {
+      lineStart: function() {
+        point0 = null;
+        clean = 1;
+      },
+      point: function(λ, φ, close) {
+        if (close) λ = λ00, φ = φ00;
+        var point = d3_geo_cartesian([λ, φ]),
+            v = v0;
+        if (point0) {
+          var segment = new d3_geo_intersectSegment(point0, point),
+              intersections = [];
+          for (var i = 0, j = 100; i < segments.length && j > 0; ++i) {
+            var s = segments[i],
+                intersection = d3_geo_intersect(segment, s);
+            if (intersection) {
+              if (intersection === d3_geo_intersectCoincident ||
+                  d3_geo_cartesianEqual(intersection, point0) || d3_geo_cartesianEqual(intersection, point) ||
+                  d3_geo_cartesianEqual(intersection, s.from) || d3_geo_cartesianEqual(intersection, s.to)) {
+                var t = 1e-4;
+                λ = (λ + 3 * π + (Math.random() < .5 ? t : -t)) % (2 * π) - π;
+                φ = Math.min(π / 2 - 1e-4, Math.max(1e-4 - π / 2, φ + (Math.random() < .5 ? t : -t)));
+                segment = new d3_geo_intersectSegment(point0, point = d3_geo_cartesian([λ, φ]));
+                i = -1, --j;
+                intersections.length = 0;
+                continue;
+              }
+              var spherical = d3_geo_spherical(intersection);
+              intersection.distance = d3_geo_clipPolygonDistance(point0, intersection);
+              intersection.index = i;
+              intersection.t = d3_geo_clipPolygonDistance(s.from, intersection);
+              intersection[0] = spherical[0], intersection[1] = spherical[1], intersection.pop();
+              intersections.push(intersection);
+            }
+          }
+          if (intersections.length) {
+            clean = 0;
+            intersections.sort(function(a, b) { return a.distance - b.distance; });
+            for (var i = 0; i < intersections.length; ++i) {
+              var intersection = intersections[i];
+              if (v = !v) {
+                listener.lineStart();
+                listener.point(intersection[0], intersection[1], intersection.index, intersection.t);
+              } else {
+                listener.point(intersection[0], intersection[1], intersection.index, intersection.t);
+                listener.lineEnd();
+              }
+            }
+          }
+          if (v) listener.point(λ, φ);
         } else {
-          interpolate(current.point, current.next.point, 1, listener);
+          for (var i = 0, j = 100; i < segments.length && j > 0; ++i) {
+            var s = segments[i];
+            if (d3_geo_intersectPointOnLine(point, s)) {
+              var t = 1e-4;
+              λ = (λ + 3 * π + (Math.random() < .5 ? t : -t)) % (2 * π) - π;
+              φ = Math.min(π / 2 - 1e-4, Math.max(1e-4 - π / 2, φ + (Math.random() < .5 ? t : -t)));
+              point = d3_geo_cartesian([λ, φ]);
+              i = -1, --j;
+            }
+          }
+          if (v00 = v = visible(λ00 = λ, φ00 = φ)) listener.lineStart(), listener.point(λ, φ);
         }
-        current = current.next;
-      } else {
-        if (current.subject) {
-          points = current.prev.points;
-          for (var i = points.length; --i >= 0;) listener.point((point = points[i])[0], point[1]);
-        } else {
-          interpolate(current.point, current.prev.point, -1, listener);
-        }
-        current = current.prev;
+        point0 = point, v0 = v;
+      },
+      lineEnd: function() {
+        if (v0) listener.lineEnd();
+      },
+      // Rejoin first and last segments if there were intersections and the first
+      // and last points were visible.
+      clean: function() {
+        return clean | ((v00 && v0) << 1);
       }
-      current = current.other;
-      points = current.points;
-    } while (!current.visited);
-    listener.lineEnd();
+    };
+  }
+
+  function interpolate(from, to, direction, listener) {
+    if (from == null) {
+      var n = polygon.length;
+      polygon.forEach(function(ring, i) {
+        ring.forEach(function(point) { listener.point(point[0], point[1]); });
+        if (i < n - 1) listener.lineEnd(), listener.lineStart();
+      });
+    } else if (from.index !== to.index && from.index != null && to.index != null) {
+      for (var i = from.index; i !== to.index; i = (i + direction + segments.length) % segments.length) {
+        var segment = segments[i],
+            point = d3_geo_spherical(direction > 0 ? segment.to : segment.from);
+        listener.point(point[0], point[1]);
+      }
+    }
+  }
+
+  function polygonContains(polygon) {
+    return d3_geo_pointInPolygon(point, polygon);
   }
 }
 
-function d3_geo_clipPolygonLinkCircular(array) {
-  if (!(n = array.length)) return;
-  var n,
-      i = 0,
-      a = array[0],
-      b;
-  while (++i < n) {
-    a.next = b = array[i];
-    b.prev = a;
-    a = b;
-  }
-  a.next = b = array[0];
-  b.prev = a;
+function d3_geo_clipPolygonSort(a, b) {
+  a = a.point, b = b.point;
+  return a.index - b.index || a.t - b.t;
+}
+
+// Geodesic coordinates for two 3D points.
+function d3_geo_clipPolygonDistance(a, b) {
+  var axb = d3_geo_cartesianCross(a, b);
+  return Math.atan2(Math.sqrt(d3_geo_cartesianDot(axb, axb)), d3_geo_cartesianDot(a, b));
 }
