@@ -90,7 +90,7 @@ Array manipulation, ordering, searching, summarizing, etc.
 
 ### [Statistics](https://github.com/d3/d3-array/blob/master/README.md#statistics)
 
-### [统计](https://github.com/d3/d3-array/blob/master/README.md#statistics)
+### [统计](https://github.com/ztp130213/d3/blob/master/API.md#%E7%BB%9F%E8%AE%A1)
 
 Methods for computing basic summary statistics.
 
@@ -108,7 +108,7 @@ Methods for computing basic summary statistics.
 
 ### [Search](https://github.com/d3/d3-array/blob/master/README.md#search)
 
-### [查询](https://github.com/d3/d3-array/blob/master/README.md#search)
+### [查询](doc/d3-array.md#%E5%AE%89%E8%A3%85)
 
 Methods for searching arrays for a specific element.
 
