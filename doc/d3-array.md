@@ -66,6 +66,8 @@ var min = d3.min(array);
 
 ### Statistics
 
+### 统计
+
 Methods for computing basic summary statistics.
 
 <a name="min" href="#min">#</a> d3.<b>min</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/min.js "Source")
@@ -125,6 +127,8 @@ Returns an [unbiased estimator of the population variance](http://mathworld.wolf
 Returns the standard deviation, defined as the square root of the [bias-corrected variance](#variance), of the given *array* of numbers. If the array has fewer than two values, returns undefined. An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the standard deviation. This method ignores undefined and NaN values; this is useful for ignoring missing data.
 
 ### Search
+
+### 搜索
 
 Methods for searching arrays for a specific element.
 
