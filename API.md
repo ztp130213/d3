@@ -1,41 +1,84 @@
 # D3 API Reference
+# D3 API 参考
+
+[d3 v4 api 官方英文文档](https://github.com/d3/d3/blob/master/API.md)
+
+[d3 v4 少部分中文翻译](https://github.com/tianxuzhang/d3.v4-API-Translation)
+
+[d3 v3 中文翻译](https://github.com/d3/d3/wiki/API--%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C)
 
 D3 is a [collection of modules](https://github.com/d3) that are designed to work together; you can use the modules independently, or you can use them together as part of the default build. The source and documentation for each module is available in its repository. Follow the links below to learn more. For changes between 3.x and 4.0, see [CHANGES](https://github.com/d3/d3/blob/master/CHANGES.md); see also the [release notes](https://github.com/d3/d3/releases) and the [3.x reference](https://github.com/d3/d3-3.x-api-reference/blob/master/API-Reference.md).
 
+D3是[一些一起运行模块的集合](https://github.com/d3)；你可以单独使用某些模块，也可以使用所有模块。每个模块的源码和文档参见各自模块的git仓库。下面的链接可以了解更多。需要查看版本3.x和4.0的变化，参见[CHANGES](https://github.com/d3/d3/blob/master/CHANGES.md)，也可以查看[发布说明](https://github.com/d3/d3/releases)和[版本3.x文档](https://github.com/d3/d3-3.x-api-reference/blob/master/API-Reference.md)。
+
 * [Arrays](#arrays-d3-array) ([Statistics](#statistics), [Search](#search), [Transformations](#transformations), [Histograms](#histograms))
+* [数组](#arrays-d3-array) ([统计](#statistics), [查找](#search), [转换](#transformations), [直方图](#histograms))
 * [Axes](#axes-d3-axis)
+* [坐标轴](#axes-d3-axis)
 * [Brushes](#brushes-d3-brush)
+* [画笔](#brushes-d3-brush)
 * [Chords](#chords-d3-chord)
+* [弦图](#chords-d3-chord)
 * [Collections](#collections-d3-collection) ([Objects](#objects), [Maps](#maps), [Sets](#sets), [Nests](#nests))
+* [集合](#collections-d3-collection) ([对象](#objects), [Maps](#maps), [Sets](#sets), [嵌套](#nests))
 * [Colors](#colors-d3-color)
+* [颜色](#colors-d3-color)
 * [Contours](#contours-d3-contour)
+* [轮廓](#contours-d3-contour)
 * [Dispatches](#dispatches-d3-dispatch)
+* [事件派遣](#dispatches-d3-dispatch)
 * [Dragging](#dragging-d3-drag)
+* [拖拽](#dragging-d3-drag)
 * [Delimiter-Separated Values](#delimiter-separated-values-d3-dsv)
+* [分隔符值](#delimiter-separated-values-d3-dsv)
 * [Easings](#easings-d3-ease)
+* [缓动](#easings-d3-ease)
 * [Fetches](#fetches-d3-fetch)
+* [数据获取](#fetches-d3-fetch)
 * [Forces](#forces-d3-force)
+* [力学布局](#forces-d3-force)
 * [Number Formats](#number-formats-d3-format)
+* [数字格式](#number-formats-d3-format)
 * [Geographies](#geographies-d3-geo) ([Paths](#paths), [Projections](#projections), [Spherical Math](#spherical-math), [Spherical Shapes](#spherical-shapes), [Streams](#streams), [Transforms](#transforms))
+* [地理位置](#geographies-d3-geo) ([路径](#paths), [投射](#projections), [球面数学](#spherical-math), [球形](#spherical-shapes), [数据流](#streams), [变换](#transforms))
 * [Hierarchies](#hierarchies-d3-hierarchy)
+* [层级数据](#hierarchies-d3-hierarchy)
 * [Interpolators](#interpolators-d3-interpolate)
+* [中断器](#interpolators-d3-interpolate)
 * [Paths](#paths-d3-path)
+* [路径](#paths-d3-path)
 * [Polygons](#polygons-d3-polygon)
+* [多边形](#polygons-d3-polygon)
 * [Quadtrees](#quadtrees-d3-quadtree)
+* [四叉树](#quadtrees-d3-quadtree)
 * [Queues](#queues-d3-queue)
+* [队列](#queues-d3-queue)
 * [Random Numbers](#random-numbers-d3-random)
+* [随机数](#random-numbers-d3-random)
 * [Scales](#scales-d3-scale) ([Continuous](#continuous-scales), [Sequential](#sequential-scales), [Quantize](#quantize-scales), [Ordinal](#ordinal-scales))
+* [比例尺](#scales-d3-scale) ([连续序列](#continuous-scales), [顺序序列](#sequential-scales), [量子化序列](#quantize-scales), [序数](#ordinal-scales))
 * [Color Schemes](#color-schemes-d3-scale-chromatic)
+* [颜色模式](#color-schemes-d3-scale-chromatic)
 * [Selections](#selections-d3-selection) ([Selecting](#selecting-elements), [Modifying](#modifying-elements), [Data](#joining-data), [Events](#handling-events), [Control](#control-flow), [Local Variables](#local-variables), [Namespaces](#namespaces))
+* [选择器](#selections-d3-selection) ([选择](#selecting-elements), [修改](#modifying-elements), [Data](#joining-data), [事件](#handling-events), [控制](#control-flow), [本地变量](#local-variables), [命名空间](#namespaces))
 * [Shapes](#shapes-d3-shape) ([Arcs](#arcs), [Pies](#pies), [Lines](#lines), [Areas](#areas), [Curves](#curves), [Links](#links), [Symbols](#symbols), [Stacks](#stacks))
+* [形状](#shapes-d3-shape) ([弧](#arcs), [饼](#pies), [线](#lines), [面积](#areas), [曲线](#curves), [链接](#links), [符号](#symbols), [堆叠](#stacks))
 * [Time Formats](#time-formats-d3-time-format)
+* [时间格式化](#time-formats-d3-time-format)
 * [Time Intervals](#time-intervals-d3-time)
+* [时间间隔](#time-intervals-d3-time)
 * [Timers](#timers-d3-timer)
+* [定时器](#timers-d3-timer)
 * [Transitions](#transitions-d3-transition)
+* [过渡](#transitions-d3-transition)
 * [Voronoi Diagrams](#voronoi-diagrams-d3-voronoi)
+* [泰森多边形](#voronoi-diagrams-d3-voronoi)
 * [Zooming](#zooming-d3-zoom)
+* [缩放](#zooming-d3-zoom)
 
 D3 uses [semantic versioning](http://semver.org/). The current version is exposed as d3.version.
+
+D3使用[语义化版本](http://semver.org/)。当前版本发布为d3.version。
 
 ## [Arrays (d3-array)](https://github.com/d3/d3-array)
 
