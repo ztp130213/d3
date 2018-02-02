@@ -74,7 +74,11 @@ Methods for computing basic summary statistics.
 
 Returns the minimum value in the given *array* using natural order. If the array is empty, returns undefined. An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the minimum value.
 
+返回给定数组中自然排序最小的值。如果数组为空，返回undefined。如果指定了*accessor*参数，等同与在计算最小值之前调用了*array*.map(*accessor*)方法。
+
 Unlike the built-in [Math.min](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/min), this method ignores undefined, null and NaN values; this is useful for ignoring missing data. In addition, elements are compared using natural order rather than numeric order. For example, the minimum of the strings [“20”, “3”] is “20”, while the minimum of the numbers [20, 3] is 3.
+
+不同于内置的[Math.min](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/min)，这个方法会忽略undefined, null 和 NaN值；这对忽略丢失的数据很有用处。另外，元素的比较用的是自然排序而不是数字排序。例如，["20","3"]的最小值是20，而[20,3]的最小值是3。
 
 See also [scan](#scan) and [extent](#extent).
 
@@ -82,7 +86,11 @@ See also [scan](#scan) and [extent](#extent).
 
 Returns the maximum value in the given *array* using natural order. If the array is empty, returns undefined. An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the maximum value.
 
+返回给定数组中自然排序最大的值。如果数组为空，返回undefined。如果指定了*accessor*参数，等同与在计算最大值之前调用了*array*.map(*accessor*)方法。
+
 Unlike the built-in [Math.max](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/max), this method ignores undefined values; this is useful for ignoring missing data. In addition, elements are compared using natural order rather than numeric order. For example, the maximum of the strings [“20”, “3”] is “3”, while the maximum of the numbers [20, 3] is 20.
+
+不同于内置的[Math.max](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/max)，这个方法会忽略未定义的值；这对忽略丢失的数据很有用处。另外，元素的比较用的是自然排序而不是数字排序。例如，["20","3"]的最大值是3，然而[20,3]的最大值是20。
 
 See also [scan](#scan) and [extent](#extent).
 
@@ -90,21 +98,31 @@ See also [scan](#scan) and [extent](#extent).
 
 Returns the [minimum](#min) and [maximum](#max) value in the given *array* using natural order. If the array is empty, returns [undefined, undefined]. An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the extent.
 
+返回给定数组中自然排序的[minimum](#min)和[maximum](#max)。如果数组为空，返回[undefined, undefined]。如果指定了*accessor*参数，等同与在计算最大值之前调用了*array*.map(*accessor*)方法。
+
 <a name="sum" href="#sum">#</a> d3.<b>sum</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/sum.js "Source")
 
 Returns the sum of the given *array* of numbers. If the array is empty, returns 0. An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the sum. This method ignores undefined and NaN values; this is useful for ignoring missing data.
+
+返回给定数组（array）的和。如果数组为空，返回0。如果指定可选参数accessor函数，等同于在计算和之前调用array.map(accessor)。此方法忽略无效值(如NaN和undefined)；当只考虑明确定义的值时，这个方法可用于计算数据的和。
 
 <a name="mean" href="#mean">#</a> d3.<b>mean</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/mean.js "Source")
 
 Returns the mean of the given *array* of numbers. If the array is empty, returns undefined. An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the mean. This method ignores undefined and NaN values; this is useful for ignoring missing data.
 
+返回给定数组（array）的平均数。如果数组为空，返回undefined。如果指定可选参数accessor函数，等同在计算平均数之前调用array.map(accessor)。此方法忽略无效值(如NaN和undefined)，当只考虑明确定义的值时这个方法计算平均数很有用。
+
 <a name="median" href="#median">#</a> d3.<b>median</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/median.js "Source")
 
 Returns the median of the given *array* of numbers using the [R-7 method](https://en.wikipedia.org/wiki/Quantile#Estimating_quantiles_from_a_sample). If the array is empty, returns undefined. An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the median. This method ignores undefined and NaN values; this is useful for ignoring missing data.
 
+返回给定数组以[R-7算法](https://en.wikipedia.org/wiki/Quantile#Estimating_quantiles_from_a_sample)得出的中位数。如果数组为空，返回undefined。如果指定可选参数accessor，等同在计算中位数之前调用array.map(accessor)。此方法忽略无效值(如NaN和undefined)，当只考虑明确定义的值时这个方法计算中位数是很有用的。
+
 <a name="quantile" href="#quantile">#</a> d3.<b>quantile</b>(<i>array</i>, <i>p</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/quantile.js "Source")
 
 Returns the *p*-quantile of the given **sorted** *array* of numbers, where *p* is a number in the range [0, 1]. For example, the median can be computed using *p* = 0.5, the first quartile at *p* = 0.25, and the third quartile at *p* = 0.75. This particular implementation uses the [R-7 method](http://en.wikipedia.org/wiki/Quantile#Quantiles_of_a_population), which is the default for the R programming language and Excel. For example:
+
+返回给定数组numbers的p分位数，其中p是一个0到1范围的数。例如，中位数可以由p=0.5计算，第一个四分位数是p= 0.25，第三个四分位数是p=0.75。这个特别实现了R-7算法，这是R编程语言和Excel默认的方式。
 
 ```js
 var a = [0, 10, 30];
@@ -118,13 +136,20 @@ d3.quantile(a, 0.1); // 2
 
 An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the quantile.
 
+如果指定可选参数accessor，等同在计算中位数之前调用array.map(accessor)。
+
 <a name="variance" href="#variance">#</a> d3.<b>variance</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/variance.js "Source")
 
 Returns an [unbiased estimator of the population variance](http://mathworld.wolfram.com/SampleVariance.html) of the given *array* of numbers. If the array has fewer than two values, returns undefined. An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the variance. This method ignores undefined and NaN values; this is useful for ignoring missing data.
 
+返回给定数组的无偏总体方差[unbiased estimator of the population variance](http://mathworld.wolfram.com/SampleVariance.html）。如果数组的长度小于2，返回undefined。可选参数accessor被指定，等同在计算方差之前调用array.map(accessor)。此方法忽略无效值(如NaN和undefined)。
+
 <a name="deviation" href="#deviation">#</a> d3.<b>deviation</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/deviation.js "Source")
 
 Returns the standard deviation, defined as the square root of the [bias-corrected variance](#variance), of the given *array* of numbers. If the array has fewer than two values, returns undefined. An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the standard deviation. This method ignores undefined and NaN values; this is useful for ignoring missing data.
+
+返回给定数组的标准差，即方差[bias-corrected variance](#variance)的平方根。如果数组的长度小于2，返回undefined。可选参数accessor被指定，等同在计算中位数之前调用array.map(accessor)。此方法忽略无效值(如NaN和undefined)。
+
 
 ### Search
 
@@ -136,6 +161,8 @@ Methods for searching arrays for a specific element.
 
 Performs a linear scan of the specified *array*, returning the index of the least element according to the specified *comparator*. If the given *array* contains no comparable elements (*i.e.*, the comparator returns NaN when comparing each element to itself), returns undefined. If *comparator* is not specified, it defaults to [ascending](#ascending). For example:
 
+根据比较函数comparator线性扫描一个数组，返回最后一个元素的索引。如果给定的数组不包含可比较的元素（比如说comparator比较每个元素自己时返回NaN），返回undefined。如果comparator没有指定，默认[升序](#ascending)
+
 ```js
 var array = [{foo: 42}, {foo: 91}];
 d3.scan(array, function(a, b) { return a.foo - b.foo; }); // 0
@@ -144,9 +171,13 @@ d3.scan(array, function(a, b) { return b.foo - a.foo; }); // 1
 
 This function is similar to [min](#min), except it allows the use of a comparator rather than an accessor and it returns the index instead of the accessed value. See also [bisect](#bisect).
 
+这个函数有点像[min](#min)，除了它允许我们使用comparator而不是accessor，并且它返回的是索引而不是值。也可以参见[bisect](#bisect).
+
 <a name="bisectLeft" href="#bisectLeft">#</a> d3.<b>bisectLeft</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [<>](https://github.com/d3/d3-array/blob/master/src/bisect.js#L6 "Source")
 
 Returns the insertion point for *x* in *array* to maintain sorted order. The arguments *lo* and *hi* may be used to specify a subset of the array which should be considered; by default the entire array is used. If *x* is already present in *array*, the insertion point will be before (to the left of) any existing entries. The return value is suitable for use as the first argument to [splice](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/splice) assuming that *array* is already sorted. The returned insertion point *i* partitions the *array* into two halves so that all *v* < *x* for *v* in *array*.slice(*lo*, *i*) for the left side and all *v* >= *x* for *v* in *array*.slice(*i*, *hi*) for the right side.
+
+定位数组中的x的插入点，以保持已有序列。参数lo和hi用来指定数组的子集；默认情况下整个数组都被使用。如果 x 在 array 中已存在，插入点在所有元素之前（左侧）。返回值适合用作拼接（splice）已经排序的数组array的第一个参数。返回的插入点i把array 分为两个区：数组中所有array.slice(lo, i)中v<x的v在左边，数组中所有array.slice(i, hi)中v >= x的v在右边。
 
 <a name="bisect" href="#bisect">#</a> d3.<b>bisect</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [<>](https://github.com/d3/d3-array/blob/master/src/bisect.js "Source")<br>
 <a name="bisectRight" href="#bisectRight">#</a> d3.<b>bisectRight</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [<>](https://github.com/d3/d3-array/blob/master/src/bisect.js#L6 "Source")
