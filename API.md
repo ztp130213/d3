@@ -82,11 +82,19 @@ D3使用[语义化版本](http://semver.org/)。当前版本发布为d3.version�
 
 ## [Arrays (d3-array)](https://github.com/d3/d3-array)
 
+## [数组 (d3-array)](https://github.com/d3/d3-array)
+
 Array manipulation, ordering, searching, summarizing, etc.
+
+数组操作，排序，搜索，汇总等。
 
 ### [Statistics](https://github.com/d3/d3-array/blob/master/README.md#statistics)
 
+### [统计](https://github.com/d3/d3-array/blob/master/README.md#statistics)
+
 Methods for computing basic summary statistics.
+
+基本的汇总统计方法。
 
 * [d3.min](https://github.com/d3/d3-array/blob/master/README.md#min) - compute the minimum value in an array.
 * [d3.max](https://github.com/d3/d3-array/blob/master/README.md#max) - compute the maximum value in an array.
@@ -100,7 +108,11 @@ Methods for computing basic summary statistics.
 
 ### [Search](https://github.com/d3/d3-array/blob/master/README.md#search)
 
+### [查询](https://github.com/d3/d3-array/blob/master/README.md#search)
+
 Methods for searching arrays for a specific element.
+
+查询一个特定元素的方法。
 
 * [d3.scan](https://github.com/d3/d3-array/blob/master/README.md#scan) - linear search for an element using a comparator.
 * [d3.bisect](https://github.com/d3/d3-array/blob/master/README.md#bisect) - binary search for a value in a sorted array.
@@ -114,7 +126,11 @@ Methods for searching arrays for a specific element.
 
 ### [Transformations](https://github.com/d3/d3-array/blob/master/README.md#transformations)
 
+### [转换](https://github.com/d3/d3-array/blob/master/README.md#transformations)
+
 Methods for transforming arrays and for generating new arrays.
+
+把一个数组转换成一个新数组的方法。
 
 * [d3.cross](https://github.com/d3/d3-array/blob/master/README.md#cross) - compute the Cartesian product of two arrays.
 * [d3.merge](https://github.com/d3/d3-array/blob/master/README.md#merge) - merge multiple arrays into one array.
@@ -130,7 +146,11 @@ Methods for transforming arrays and for generating new arrays.
 
 ### [Histograms](https://github.com/d3/d3-array/blob/master/README.md#histograms)
 
+### [直方图](https://github.com/d3/d3-array/blob/master/README.md#histograms)
+
 Bin discrete samples into continuous, non-overlapping intervals.
+
+把离散的样本数据转成连续的没有重叠的间隔数据。
 
 * [d3.histogram](https://github.com/d3/d3-array/blob/master/README.md#histogram) - create a new histogram generator.
 * [*histogram*](https://github.com/d3/d3-array/blob/master/README.md#_histogram) - compute the histogram for the given array of samples.
