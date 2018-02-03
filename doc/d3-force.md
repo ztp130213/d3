@@ -1,6 +1,10 @@
+[文档原链接](https://github.com/d3/d3-force)
+
 # d3-force
 
 This module implements a [velocity Verlet](https://en.wikipedia.org/wiki/Verlet_integration) numerical integrator for simulating physical forces on particles. The simulation is simplified: it assumes a constant unit time step Δ*t* = 1 for each step, and a constant unit mass *m* = 1 for all particles. As a result, a force *F* acting on a particle is equivalent to a constant acceleration *a* over the time interval Δ*t*, and can be simulated simply by adding to the particle’s velocity, which is then added to the particle’s position.
+
+该模块实现了用于分子动力学模拟的[韦尔莱算法]（https://zh.wikipedia.org/wiki/%E9%9F%A6%E5%B0%94%E8%8E%B1%E7%A7%AF%E5%88%86%E6%B3%95）。模拟被简化了：对于每一步，假设恒定的单位时间步长Δ* t * = 1，并且对于所有的粒子假定恒定的单位质量* m * = 1。 因此，作用于粒子的力* F *在时间间隔Δ* t *内相当于一个恒定的加速度* a *，并且可以简单地通过加上粒子的速度来模拟，粒子的速度被加到粒子 位置。
 
 In the domain of information visualization, physical simulations are useful for studying [networks](http://bl.ocks.org/mbostock/ad70335eeef6d167bc36fd3c04378048) and [hierarchies](http://bl.ocks.org/mbostock/95aa92e2f4e8345aaa55a4a94d41ce37)!
 
