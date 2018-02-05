@@ -1,4 +1,4 @@
-[档源链接](https://github.com/d3/d3/blob/master/API.md#axes-d3-axis)
+[问档源链接](https://github.com/d3/d3/blob/master/API.md#axes-d3-axis)
 
 # d3-axis
 轴组件呈现人类可读的标度参考标记。这减轻了数据可视化中较繁琐的任务之一。
@@ -31,7 +31,7 @@ The elements created by the axis are considered part of its public API. You can 
 
 轴创建的元素被视为其公共API的一部分。您可以应用外部样式表或修改生成的轴元素来[自定义轴外观](https://bl.ocks.org/mbostock/3371592)。
 
-![](https://bl.ocks.org/mbostock/3371592)
+<img alt="Custom Axis" src="https://raw.githubusercontent.com/d3/d3-axis/master/img/custom.png" width="420" height="219" style="max-width:100%;">
 
 An axis consists of a path element of class “domain” representing the extent of the scale’s domain, followed by transformed g elements of class “tick” representing each of the scale’s ticks. Each tick has a line element to draw the tick line, and a text element for the tick label. For example, here is a typical bottom-oriented axis:
 
@@ -70,27 +70,33 @@ The orientation of an axis is fixed; to change the orientation, remove the old a
 轴的方向是固定的; 改变方向，删除旧的轴并创建一个新的轴。
 
 <a name="user-content-axis_axisTop" href="#axis_axisTop">#</a> d3.axisTop(scale) [<>](https://github.com/d3/d3-axis/blob/master/src/axis.js#L159)  
-Constructs a new top-oriented axis generator for the given scale, with empty tick arguments, a tick size of 6 and padding of 3. In this orientation, ticks are drawn above the horizontal domain path.
+Constructs a new top-oriented axis generator for the given scale, with empty tick arguments, a tick size of 6 and padding of 3. In this orientation, ticks are drawn above the horizontal domain path.  
+
 为给定的[比例](https://github.com/d3/d3-scale)构造一个新的面向顶点的轴生成器，其中包含空的[tick参数](https://github.com/d3/d3-axis/blob/master/README.md#axis_ticks)，[tick大小](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSize)为6，[padding](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickPadding)为3.在此方向上，在水平域路径上方绘制刻度线。
   
 <a name="user-content-axis_axisRight" href="#axis_axisRight">#</a> d3.axisRight(scale) [<>](https://github.com/d3/d3-axis/blob/master/src/axis.js#L163)  
 Constructs a new right-oriented axis generator for the given scale, with empty tick arguments, a tick size of 6 and padding of 3. In this orientation, ticks are drawn to the right of the vertical domain path.
+
 为给定的[比例](https://github.com/d3/d3-scale)构造一个新的右向顶点的轴生成器，其中包含空的[tick参数](https://github.com/d3/d3-axis/blob/master/README.md#axis_ticks)，[tick大小](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSize)为6，[padding](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickPadding)为3.在此方向上，在水平域路径上方绘制刻度线。
 
 <a name="user-content-axis_axisBottom" href="#axis_axisBottom">#</a> d3.axisBottom(scale) [<>](https://github.com/d3/d3-axis/blob/master/src/axis.js#L167)  
 Constructs a new bottom-oriented axis generator for the given scale, with empty tick arguments, a tick size of 6 and padding of 3. In this orientation, ticks are drawn below the horizontal domain path.
+
 为给定的[比例](https://github.com/d3/d3-scale)构造一个新的面向底部的轴生成器，其中包含空的[tick参数](https://github.com/d3/d3-axis/blob/master/README.md#axis_ticks)，[tick大小](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSize)为6，[padding](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickPadding)为3.在此方向上，在水平域路径上方绘制刻度线。
 
 <a name="user-content-axis_axisRight" href="#axis_axisRight">#</a> d3.axisRight(scale) [<>](https://github.com/d3/d3-axis/blob/master/src/axis.js#L171)  
 Constructs a new left-oriented axis generator for the given scale, with empty tick arguments, a tick size of 6 and padding of 3. In this orientation, ticks are drawn to the left of the vertical domain path.
+
 为给定的[比例](https://github.com/d3/d3-scale)构造一个新的左向顶点的轴生成器，其中包含空的[tick参数](https://github.com/d3/d3-axis/blob/master/README.md#axis_ticks)，[tick大小](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSize)为6，[padding](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickPadding)为3.在此方向上，在水平域路径上方绘制刻度线。
 
 <a name="user-content-axis_context" href="#axis_context">#</a> axis(context) [<>](https://github.com/d3/d3-axis/blob/master/src/axis.js#L40)  
 Render the axis to the given context, which may be either a selection of SVG containers (either SVG or G elements) or a corresponding transition.
+
 将轴渲染到给定的上下文中，该上下文可以是SVG容器（SVG或G元素）的[选择](https://www.w3.org/TR/SVG/struct.html#Groups)，也可以是相应的[过渡](https://github.com/d3/d3-transition)。
 
 <a name="user-content-axis_scale" href="#axis_scale">#</a> scale(context) [<>](https://github.com/d3/d3-axis/blob/master/src/axis.js#L120)  
 If scale is specified, sets the scale and returns the axis. If scale is not specified, returns the current scale.
+
 如果[scale](https://www.w3.org/TR/SVG/struct.html#Groups)存在，设置scale并返回axis。如果scale不存在，则返回当前scale。
 将轴渲染到给定的上下文中，该上下文可以是SVG容器（SVG或G元素）的，也可以是相应的[过渡](https://github.com/d3/d3-transition)。
 
