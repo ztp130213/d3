@@ -185,7 +185,7 @@ var xAxis = d3.axisBottom(x)
 明确的刻度值先于[axis .tickArguments](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickArguments)设置的刻度参数。但是，如果没有设置刻度格式，任何刻度参数仍然会传递给刻度的[tickFormat](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickFormat)函数。
 
 \# axis.tickFormat([format]) [<>](https://github.com/d3/d3-axis/blob/master/src/axis.js#L136)  
-如果格式指定，设定蜱格式函数并返回轴线。如果未指定format，则返回当前格式化的函数，默认为null。空格式表示应该使用比例的默认格式化程序，它是通过调用[scale .tickFormat](https://github.com/d3/d3-scale/blob/master/README.md#continuous_tickFormat)生成的。在这种情况下，通过指定的参数[axis .tickArguments](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickArguments)同样传递到scale的[tickFormat](https://github.com/d3/d3-scale/blob/master/README.md#continuous_tickFormat)。
+如果格式指定，设定tick格式函数并返回轴线。如果未指定format，则返回当前格式化的函数，默认为null。空格式表示应该使用比例的默认格式化程序，它是通过调用[scale .tickFormat](https://github.com/d3/d3-scale/blob/master/README.md#continuous_tickFormat)生成的。在这种情况下，通过指定的参数[axis .tickArguments](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickArguments)同样传递到scale的[tickFormat](https://github.com/d3/d3-scale/blob/master/README.md#continuous_tickFormat)。
 请参阅[d3格式](https://github.com/d3/d3-format)和[d3时间格式](https://github.com/d3/d3-time-format)以获取帮助创建格式化程序的信息。例如，要使用逗号分组来显示数千个整数：
 ```
 axis.tickFormat(d3.format(",.0f"));
