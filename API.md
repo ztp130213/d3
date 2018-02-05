@@ -161,7 +161,7 @@ Human-readable reference marks for scales.
     [*axis*.ticks](/doc/d3-axes.md#axis_ticks) - 定制ticks如何生成与格式化
 * [*axis*.tickArguments](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickArguments) - customize how ticks are generated and formatted.  
     [*axis*.tickArguments](/doc/d3-axes.md#axis_tickArguments) - 定制ticks如何生成与格式化
-* [*axis*.tickValues](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickValues) - set the tick values explicitly.
+* [*axis*.tickValues](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickValues) - set the tick values explicitly.  
     [*axis*.tickValues](/doc/d3-axes.md#axis_tickValues) - 设置tick定义的值
 * [*axis*.tickFormat](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickFormat) - set the tick format explicitly.  
     [*axis*.tickFormat](/doc/d3-axes.md#axis_tickFormat) - 设置tick格式化的值

@@ -1,4 +1,4 @@
-[问档源链接](https://github.com/d3/d3/blob/master/API.md#axes-d3-axis)
+[文档源链接](https://github.com/d3/d3/blob/master/API.md#axes-d3-axis)
 
 # d3-axis
 轴组件呈现人类可读的标度参考标记。这减轻了数据可视化中较繁琐的任务之一。
