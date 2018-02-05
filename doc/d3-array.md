@@ -144,7 +144,7 @@ An optional *accessor* function may be specified, which is equivalent to calling
 
 Returns an [unbiased estimator of the population variance](http://mathworld.wolfram.com/SampleVariance.html) of the given *array* of numbers. If the array has fewer than two values, returns undefined. An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the variance. This method ignores undefined and NaN values; this is useful for ignoring missing data.
 
-返回给定数值数组的[无偏总体方差](http://mathworld.wolfram.com/SampleVariance.html）。如果数组的长度小于2，返回undefined。如果知道可选参数*accessor*，则在计算方差之前调用*array*.map(*accessor*)。此方法忽略无效值(如NaN和undefined)；这对处理定含未定义值的数组时很有用处。
+返回给定数值数组的[无偏总体方差](http://mathworld.wolfram.com/SampleVariance.html)。如果数组的长度小于2，返回undefined。如果知道可选参数*accessor*，则在计算方差之前调用*array*.map(*accessor*)。此方法忽略无效值(如NaN和undefined)；这对处理定含未定义值的数组时很有用处。
 
 <a name="deviation" href="#deviation">#</a> d3.<b>deviation</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/deviation.js "Source")
 
