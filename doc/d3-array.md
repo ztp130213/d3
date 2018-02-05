@@ -70,15 +70,17 @@ var min = d3.min(array);
 
 Methods for computing basic summary statistics.
 
+基本汇总统计方法。
+
 <a name="min" href="#min">#</a> d3.<b>min</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/min.js "Source")
 
 Returns the minimum value in the given *array* using natural order. If the array is empty, returns undefined. An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the minimum value.
 
-返回给定数组中自然排序最小的值。如果数组为空，返回undefined。如果指定了*accessor*参数，等同与在计算最小值之前调用了*array*.map(*accessor*)方法。
+返回给定数组中自然排序最小的值。如果数组为空，返回undefined。如果指定了*accessor*参数，则在计算最小值之前调用*array*.map(*accessor*)方法。
 
 Unlike the built-in [Math.min](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/min), this method ignores undefined, null and NaN values; this is useful for ignoring missing data. In addition, elements are compared using natural order rather than numeric order. For example, the minimum of the strings [“20”, “3”] is “20”, while the minimum of the numbers [20, 3] is 3.
 
-不同于内置的[Math.min](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/min)，这个方法会忽略undefined, null 和 NaN值；这对忽略丢失的数据很有用处。另外，元素的比较用的是自然排序而不是数字排序。例如，["20","3"]的最小值是20，而[20,3]的最小值是3。
+不同于内置的[Math.min](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/min)，这个方法会忽略undefined，null和NaN；这对处理数据不全的数组很友好。另外，元素的比较用的是自然排序而不是数字排序。例如，["20","3"]的最小值是20，而[20,3]的最小值是3。
 
 See also [scan](#scan) and [extent](#extent).
 
@@ -86,11 +88,11 @@ See also [scan](#scan) and [extent](#extent).
 
 Returns the maximum value in the given *array* using natural order. If the array is empty, returns undefined. An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the maximum value.
 
-返回给定数组中自然排序最大的值。如果数组为空，返回undefined。如果指定了*accessor*参数，等同与在计算最大值之前调用了*array*.map(*accessor*)方法。
+返回给定数组中自然排序最大的值。如果数组为空，返回undefined。如果指定了*accessor*参数，则在计算最大值之前调用了*array*.map(*accessor*)方法。
 
 Unlike the built-in [Math.max](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/max), this method ignores undefined values; this is useful for ignoring missing data. In addition, elements are compared using natural order rather than numeric order. For example, the maximum of the strings [“20”, “3”] is “3”, while the maximum of the numbers [20, 3] is 20.
 
-不同于内置的[Math.max](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/max)，这个方法会忽略未定义的值；这对忽略丢失的数据很有用处。另外，元素的比较用的是自然排序而不是数字排序。例如，["20","3"]的最大值是3，然而[20,3]的最大值是20。
+不同于内置的[Math.max](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math/max)，这个方法会忽略未定义的值；这对忽略数组中丢失的数据很有用处。另外，元素的比较用的是自然排序而不是数字排序。例如，["20","3"]的最大值是3，然而[20,3]的最大值是20。
 
 See also [scan](#scan) and [extent](#extent).
 
@@ -98,31 +100,31 @@ See also [scan](#scan) and [extent](#extent).
 
 Returns the [minimum](#min) and [maximum](#max) value in the given *array* using natural order. If the array is empty, returns [undefined, undefined]. An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the extent.
 
-返回给定数组中自然排序的[minimum](#min)和[maximum](#max)。如果数组为空，返回[undefined, undefined]。如果指定了*accessor*参数，等同与在计算最大值之前调用了*array*.map(*accessor*)方法。
+返回给定数组中自然排序的[最小值](#min)和[最大值](#max)。如果数组为空，返回[undefined, undefined]。如果指定了*accessor*参数，则在在计算之前调用了*array*.map(*accessor*)方法。
 
 <a name="sum" href="#sum">#</a> d3.<b>sum</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/sum.js "Source")
 
 Returns the sum of the given *array* of numbers. If the array is empty, returns 0. An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the sum. This method ignores undefined and NaN values; this is useful for ignoring missing data.
 
-返回给定数组（array）的和。如果数组为空，返回0。如果指定可选参数accessor函数，等同于在计算和之前调用array.map(accessor)。此方法忽略无效值(如NaN和undefined)；当只考虑明确定义的值时，这个方法可用于计算数据的和。
+返回给定数组（array）的和。如果数组为空，返回0。如果指定可选参数*accessor*函数，则在计算和之前调用array.map(accessor)。此方法忽略NaN和undefined；这对处理定含未定义值的数组时很有用处。
 
 <a name="mean" href="#mean">#</a> d3.<b>mean</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/mean.js "Source")
 
 Returns the mean of the given *array* of numbers. If the array is empty, returns undefined. An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the mean. This method ignores undefined and NaN values; this is useful for ignoring missing data.
 
-返回给定数组（array）的平均数。如果数组为空，返回undefined。如果指定可选参数accessor函数，等同在计算平均数之前调用array.map(accessor)。此方法忽略无效值(如NaN和undefined)，当只考虑明确定义的值时这个方法计算平均数很有用。
+返回给定数组的平均数。如果数组为空，返回undefined。如果指定可选参数*accessor*函数，则在计算平均数之前调用*array*.map(*accessor*)。此方法忽略非数值(NaN)和undefined；这对处理定含未定义值的数组时很有用处。
 
 <a name="median" href="#median">#</a> d3.<b>median</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/median.js "Source")
 
 Returns the median of the given *array* of numbers using the [R-7 method](https://en.wikipedia.org/wiki/Quantile#Estimating_quantiles_from_a_sample). If the array is empty, returns undefined. An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the median. This method ignores undefined and NaN values; this is useful for ignoring missing data.
 
-返回给定数组以[R-7算法](https://en.wikipedia.org/wiki/Quantile#Estimating_quantiles_from_a_sample)得出的中位数。如果数组为空，返回undefined。如果指定可选参数accessor，等同在计算中位数之前调用array.map(accessor)。此方法忽略无效值(如NaN和undefined)，当只考虑明确定义的值时这个方法计算中位数是很有用的。
+返回给定数组以[R-7算法](https://en.wikipedia.org/wiki/Quantile#Estimating_quantiles_from_a_sample)算出的中位数。如果数组为空，返回undefined。如果指定可选参数accessor，则在计算中位数之前调用*array*.map(*accessor*)。此方法忽略无效值(如NaN和undefined)；这对处理定含未定义值的数组时很有用处。
 
 <a name="quantile" href="#quantile">#</a> d3.<b>quantile</b>(<i>array</i>, <i>p</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/quantile.js "Source")
 
 Returns the *p*-quantile of the given **sorted** *array* of numbers, where *p* is a number in the range [0, 1]. For example, the median can be computed using *p* = 0.5, the first quartile at *p* = 0.25, and the third quartile at *p* = 0.75. This particular implementation uses the [R-7 method](http://en.wikipedia.org/wiki/Quantile#Quantiles_of_a_population), which is the default for the R programming language and Excel. For example:
 
-返回给定数组numbers的p分位数，其中p是一个0到1范围的数。例如，中位数可以由p=0.5计算，第一个四分位数是p= 0.25，第三个四分位数是p=0.75。这个特别实现了R-7算法，这是R编程语言和Excel默认的方式。
+返回给定有序数值数组的p分位数，其中*p*是一个0到1范围的数。例如，中位数可以由*p* = 0.5计算，第一个四分位数是*p* = 0.25，第三个四分位数是*p* = 0.75。这个方法特意用[R-7算法](http://en.wikipedia.org/wiki/Quantile#Quantiles_of_a_population)实现，R编程语言和Excel默认的方式。
 
 ```js
 var a = [0, 10, 30];
@@ -136,19 +138,19 @@ d3.quantile(a, 0.1); // 2
 
 An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the quantile.
 
-如果指定可选参数accessor，等同在计算中位数之前调用array.map(accessor)。
+如果指定可选参数*accessor*，相当于在计算中位数之前调用array.map(accessor)。
 
 <a name="variance" href="#variance">#</a> d3.<b>variance</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/variance.js "Source")
 
 Returns an [unbiased estimator of the population variance](http://mathworld.wolfram.com/SampleVariance.html) of the given *array* of numbers. If the array has fewer than two values, returns undefined. An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the variance. This method ignores undefined and NaN values; this is useful for ignoring missing data.
 
-返回给定数组的无偏总体方差[unbiased estimator of the population variance](http://mathworld.wolfram.com/SampleVariance.html）。如果数组的长度小于2，返回undefined。可选参数accessor被指定，等同在计算方差之前调用array.map(accessor)。此方法忽略无效值(如NaN和undefined)。
+返回给定数值数组的[无偏总体方差](http://mathworld.wolfram.com/SampleVariance.html)。如果数组的长度小于2，返回undefined。如果知道可选参数*accessor*，则在计算方差之前调用*array*.map(*accessor*)。此方法忽略无效值(如NaN和undefined)；这对处理定含未定义值的数组时很有用处。
 
 <a name="deviation" href="#deviation">#</a> d3.<b>deviation</b>(<i>array</i>[, <i>accessor</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/deviation.js "Source")
 
 Returns the standard deviation, defined as the square root of the [bias-corrected variance](#variance), of the given *array* of numbers. If the array has fewer than two values, returns undefined. An optional *accessor* function may be specified, which is equivalent to calling *array*.map(*accessor*) before computing the standard deviation. This method ignores undefined and NaN values; this is useful for ignoring missing data.
 
-返回给定数组的标准差，即方差[bias-corrected variance](#variance)的平方根。如果数组的长度小于2，返回undefined。可选参数accessor被指定，等同在计算中位数之前调用array.map(accessor)。此方法忽略无效值(如NaN和undefined)。
+返回给定数值数组的标准差，即方差[bias-corrected variance](#variance)的平方根。如果数组的长度小于2，返回undefined。可选参数accessor被指定，等同在计算中位数之前调用array.map(accessor)。此方法忽略无效值(如NaN和undefined)；这对处理定含未定义值的数组时很有用处。
 
 
 ### Search
@@ -157,11 +159,13 @@ Returns the standard deviation, defined as the square root of the [bias-correcte
 
 Methods for searching arrays for a specific element.
 
+搜索数组特定元素方法。
+
 <a name="scan" href="#scan">#</a> d3.<b>scan</b>(<i>array</i>[, <i>comparator</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/scan.js "Source")
 
 Performs a linear scan of the specified *array*, returning the index of the least element according to the specified *comparator*. If the given *array* contains no comparable elements (*i.e.*, the comparator returns NaN when comparing each element to itself), returns undefined. If *comparator* is not specified, it defaults to [ascending](#ascending). For example:
 
-根据比较函数comparator线性扫描一个数组，返回最后一个元素的索引。如果给定的数组不包含可比较的元素（比如说comparator比较每个元素自己时返回NaN），返回undefined。如果comparator没有指定，默认[升序](#ascending)
+根据比较函数comparator线性扫描一个数组，返回最后一个元素的索引。如果给定的数组不包含可比较的元素（比如说comparator比较元素自己时返回NaN），返回undefined。如果comparator没有指定，默认[升序排序](#ascending)。例如：
 
 ```js
 var array = [{foo: 42}, {foo: 91}];
@@ -171,23 +175,27 @@ d3.scan(array, function(a, b) { return b.foo - a.foo; }); // 1
 
 This function is similar to [min](#min), except it allows the use of a comparator rather than an accessor and it returns the index instead of the accessed value. See also [bisect](#bisect).
 
-这个函数有点像[min](#min)，除了它允许我们使用comparator而不是accessor，并且它返回的是索引而不是值。也可以参见[bisect](#bisect).
+这个函数有点像[最小值](#min)，除了它允许我们使用*comparator*而不是*accessor*，并且它返回的是索引而不是值。也可以参见[bisect](#bisect).
 
 <a name="bisectLeft" href="#bisectLeft">#</a> d3.<b>bisectLeft</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [<>](https://github.com/d3/d3-array/blob/master/src/bisect.js#L6 "Source")
 
 Returns the insertion point for *x* in *array* to maintain sorted order. The arguments *lo* and *hi* may be used to specify a subset of the array which should be considered; by default the entire array is used. If *x* is already present in *array*, the insertion point will be before (to the left of) any existing entries. The return value is suitable for use as the first argument to [splice](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/splice) assuming that *array* is already sorted. The returned insertion point *i* partitions the *array* into two halves so that all *v* < *x* for *v* in *array*.slice(*lo*, *i*) for the left side and all *v* >= *x* for *v* in *array*.slice(*i*, *hi*) for the right side.
 
-定位数组中的x的插入点，以保持已有序列。参数lo和hi用来指定数组的子集；默认情况下整个数组都被使用。如果 x 在 array 中已存在，插入点在所有元素之前（左侧）。返回值适合用作拼接（splice）已经排序的数组array的第一个参数。返回的插入点i把array 分为两个区：数组中所有array.slice(lo, i)中v<x的v在左边，数组中所有array.slice(i, hi)中v >= x的v在右边。
+返回x在给定数组中的插入点，以保持原有顺序。参数lo和hi用来指定数组的子集；默认情况下整个数组都。如果*x*在*array*中已存在，插入点在所有元素之前（左侧）。返回值可用于[splice](https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/splice)有序数组的第一个参数。返回的插入点*i*把数组分为两个区：数组中所有array.slice(lo, i)中v<x的v在左边，数组中所有array.slice(i, hi)中v >= x的v在右边。
 
 <a name="bisect" href="#bisect">#</a> d3.<b>bisect</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [<>](https://github.com/d3/d3-array/blob/master/src/bisect.js "Source")<br>
 <a name="bisectRight" href="#bisectRight">#</a> d3.<b>bisectRight</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [<>](https://github.com/d3/d3-array/blob/master/src/bisect.js#L6 "Source")
 
 Similar to [bisectLeft](#bisectLeft), but returns an insertion point which comes after (to the right of) any existing entries of *x* in *array*. The returned insertion point *i* partitions the *array* into two halves so that all *v* <= *x* for *v* in *array*.slice(*lo*, *i*) for the left side and all *v* > *x* for *v* in *array*.slice(*i*, *hi*) for the right side.
 
+和[bisectLeft](#bisectLeft)类似，但返回插入点来自于数组array中任意实体x之后（右侧）。返回的插入点i把数组分为两个区：数组中所有array.slice(lo, i)中v <= x的v在左边，数组中所有 array.slice(i, hi)中v > x 的v在右边。
+
 <a name="bisector" href="#bisector">#</a> d3.<b>bisector</b>(<i>accessor</i>) [<>](https://github.com/d3/d3-array/blob/master/src/bisector.js "Source")
 <br><a name="bisector" href="#bisector">#</a> d3.<b>bisector</b>(<i>comparator</i>) [<>](https://github.com/d3/d3-array/blob/master/src/bisector.js "Source")
 
 Returns a new bisector using the specified *accessor* or *comparator* function. This method can be used to bisect arrays of objects instead of being limited to simple arrays of primitives. For example, given the following array of objects:
+
+使用指定参数*accessor*或者*comparator*函数返回一个二等分线。这个方法能用于二等分对象数组而不适用于原始的简单数组。例如下列对象的数组:
 
 ```js
 var data = [
@@ -200,11 +208,15 @@ var data = [
 
 A suitable bisect function could be constructed as:
 
+一个合适的二等分函数可定义为：
+
 ```js
 var bisectDate = d3.bisector(function(d) { return d.date; }).right;
 ```
 
 This is equivalent to specifying a comparator:
+
+相当于指定一个比较器
 
 ```js
 var bisectDate = d3.bisector(function(d, x) { return d.date - x; }).right;
@@ -212,17 +224,25 @@ var bisectDate = d3.bisector(function(d, x) { return d.date - x; }).right;
 
 And then applied as *bisectDate*(*array*, *date*), returning an index. Note that the comparator is always passed the search value *x* as the second argument. Use a comparator rather than an accessor if you want values to be sorted in an order different than natural order, such as in descending rather than ascending order.
 
+然后调用*bisectDate*(*array*, *date*)，返回索引。 如果你想使用不同于自然排序的方法对值进行排序，那么可以使用比较器（comparator）而不是访问器（accessor），例如使用降序排序而不是升序排序的时候。
+
 <a name="bisector_left" href="#bisector_left">#</a> <i>bisector</i>.<b>left</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [<>](https://github.com/d3/d3-array/blob/master/src/bisector.js#L6 "Source")
 
 Equivalent to [bisectLeft](#bisectLeft), but uses this bisector’s associated comparator.
+
+相当于[bisectLeft](#bisectLeft)，只是使用bisector设置的比较器。
 
 <a name="bisector_right" href="#bisector_right">#</a> <i>bisector</i>.<b>right</b>(<i>array</i>, <i>x</i>[, <i>lo</i>[, <i>hi</i>]]) [<>](https://github.com/d3/d3-array/blob/master/src/bisector.js#L16 "Source")
 
 Equivalent to [bisectRight](#bisectRight), but uses this bisector’s associated comparator.
 
+相当于[bisectRight](#bisectRight)，只是使用bisector设置的比较器。
+
 <a name="ascending" href="#ascending">#</a> d3.<b>ascending</b>(<i>a</i>, <i>b</i>) [<>](https://github.com/d3/d3-array/blob/master/src/ascending.js "Source")
 
 Returns -1 if *a* is less than *b*, or 1 if *a* is greater than *b*, or 0. This is the comparator function for natural order, and can be used in conjunction with the built-in [*array*.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) method to arrange elements in ascending order. It is implemented as:
+
+如果a<b返回-1，a>b返回1，a=b返回0。默认的比较器是自然排序，也可用于关联内置[*array*.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)方法来给元素升序排序。实现如下：
 
 ```js
 function ascending(a, b) {
@@ -232,9 +252,13 @@ function ascending(a, b) {
 
 Note that if no comparator function is specified to the built-in sort method, the default order is lexicographic (alphabetical), not natural! This can lead to surprising behavior when sorting an array of numbers.
 
+注意，如果没有给数组的内置排序方法没有指定比较器函数，那默认的排序是字典排序(字母序)，而非自然排列！所以给数值数组排序时会有bug。
+
 <a name="descending" href="#descending">#</a> d3.<b>descending</b>(<i>a</i>, <i>b</i>) [<>](https://github.com/d3/d3-array/blob/master/src/descending.js "Source")
 
 Returns -1 if *a* is greater than *b*, or 1 if *a* is less than *b*, or 0. This is the comparator function for reverse natural order, and can be used in conjunction with the built-in array sort method to arrange elements in descending order.  It is implemented as:
+
+如果a>b返回-1，a<b返回1，a=b返回0。默认的比较器是自然排序，也可关联内置[*array*.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)方法来给元素降序序排序。实现如下：
 
 ```js
 function descending(a, b) {
@@ -243,6 +267,8 @@ function descending(a, b) {
 ```
 
 Note that if no comparator function is specified to the built-in sort method, the default order is lexicographic (alphabetical), not natural! This can lead to surprising behavior when sorting an array of numbers.
+
+注意，如果没有给数组的内置排序方法没有指定比较器函数，那默认的排序是字典排序(字母序)，而非自然排列！所以给数值数组排序时会有bug。
 
 ### Transformations
 
@@ -269,6 +295,8 @@ d3.cross([1, 2], ["x", "y"], (a, b) => a + b); // returns ["1x", "1y", "2x", "2y
 
 Merges the specified *arrays* into a single array. This method is similar to the built-in array concat method; the only difference is that it is more convenient when you have an array of arrays.
 
+合并指定参数arrays 为一个数组，此方法和数组内置方法concat 类似；唯一不同是当你要处理二维数组时，d3.merge(arrays)方法更方便。
+
 ```js
 d3.merge([[1], [2, 3]]); // returns [1, 2, 3]
 ```
@@ -276,6 +304,8 @@ d3.merge([[1], [2, 3]]); // returns [1, 2, 3]
 <a name="pairs" href="#pairs">#</a> d3.<b>pairs</b>(<i>array</i>[, <i>reducer</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/pairs.js "Source")
 
 For each adjacent pair of elements in the specified *array*, in order, invokes the specified *reducer* function passing the element *i* and element *i* - 1. If a *reducer* is not specified, it defaults to a function which creates a two-element array for each pair:
+
+对指定参数array中元素的每个相邻对，返回元组(元素i和元素i-1)的新数组。例如：
 
 ```js
 function pair(a, b) {
@@ -292,12 +322,16 @@ d3.pairs([1, 2, 3, 4], (a, b) => b - a); // returns [1, 1, 1];
 
 If the specified array has fewer than two elements, returns the empty array.
 
+如果指定参数array 中少于两个元素，则返回一个空数组。
+
 <a name="permute" href="#permute">#</a> d3.<b>permute</b>(<i>array</i>, <i>indexes</i>) [<>](https://github.com/d3/d3-array/blob/master/src/permute.js "Source")
 
 Returns a permutation of the specified *array* using the specified array of *indexes*. The returned array contains the corresponding element in array for each index in indexes, in order. For example, permute(["a", "b", "c"], [1, 2, 0])
 returns ["b", "c", "a"]. It is acceptable for the array of indexes to be a different length from the array of elements, and for indexes to be duplicated or omitted.
 
 This method can also be used to extract the values from an object into an array with a stable order. Extracting keyed values in order can be useful for generating data arrays in nested selections. For example:
+
+使用指定的indexes数组返回指定数组的转置。返回数组包含indexes数组中索引对应的元素，按顺序。例如，permute(["a", "b", "c"], [1, 2, 0]) 返回 ["b", "c", "a"]。indexes数组的长度和array中的元素长度不一样是可以接受的，并且允许indexes数组重复或者省略。 这个方法可以用来按固定顺序提取对象中的值到一个数组中。（在JavaScript中indexes数组是和.length有特殊关系的简单属性）。按顺序提取带键的值可以用来生成嵌套选择中的数据数组。例如，我们可以用表格形式展示上述的一些明尼苏达州大麦产量数据：
 
 ```js
 var object = {yield: 27, variety: "Manchuria", year: 1931, site: "University Farm"},
@@ -332,6 +366,8 @@ If *step* is omitted, it defaults to 1. If *start* is omitted, it defaults to 0.
 
 The arguments are not required to be integers; however, the results are more predictable if they are. The values in the returned array are defined as *start* + *i* \* *step*, where *i* is an integer from zero to one minus the total number of elements in the returned array. For example:
 
+生成一个包含算数级数的数组，类似于Python的内置函数range。这个方法常用来遍历一个数字序列或者整型数值。例如数组中的索引。不同于Python版本，这个参数不必是整形。尽管如果它们是浮点精度类型时这个结果更加可预测。如果省略step，默认值是1。如果省略start参数，默认值就是0。结果中不包含stop值。完整的形式是返回一个数字数组[start,start+step,start+2 *step,…]。如果step是正的，则最后一个元素是小于stop的start+ i*step中的最大数值；如果step是负的，最后一个元素是大于stop的start + i*step中的最小数值。如果返回的数组将包含值无限多数字，就会抛出一个错误，而不是造成无限循环。
+
 ```js
 d3.range(0, 1, 0.2) // [0, 0.2, 0.4, 0.6000000000000001, 0.8]
 ```
@@ -349,9 +385,13 @@ d3.range(49).map(function(d) { return d / 49; }); // GOOD: returns 49 elements.
 
 Uses the [zip](#zip) operator as a two-dimensional [matrix transpose](http://en.wikipedia.org/wiki/Transpose).
 
+等价于d3.zip.apply(null, matrix)；使用zip操作符作为二维矩阵变换(matrix transpose)。
+
 <a name="zip" href="#zip">#</a> d3.<b>zip</b>(<i>arrays…</i>) [<>](https://github.com/d3/d3-array/blob/master/src/zip.js "Source")
 
 Returns an array of arrays, where the *i*th array contains the *i*th element from each of the argument *arrays*. The returned array is truncated in length to the shortest array in *arrays*. If *arrays* contains only a single array, the returned array contains one-element arrays. With no arguments, the returned array is empty.
+
+返回的数组的数组，其中，第i个数组包含来自每个arrays参数的第i个元素。返回的数组长度被截断为arrays的最短的数组的长度。如果arrays只包含一个数组，则返回的数组是包含一个元素的数组。不带任何参数，则返回的数组是空的。
 
 ```js
 d3.zip([1, 2], [3, 4]); // returns [[1, 3], [2, 4]]
