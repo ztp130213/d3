@@ -156,23 +156,23 @@ Human-readable reference marks for scales.
 * [*axis*](https://github.com/d3/d3-axis/blob/master/README.md#_axis) - generate an axis for the given selection.  
     [*axis*](/doc/d3-axes.md#axis) - 为给定的选择器创建一个轴
 * [*axis*.scale](https://github.com/d3/d3-axis/blob/master/README.md#axis_scale) - set the scale.  
-    [*axis*.scale](/doc/d3-axes.md#axis_scale) - 设置比例
+    [*axis*.scale](/doc/d3-axes.md#axis_scale) - 设置比例尺
 * [*axis*.ticks](https://github.com/d3/d3-axis/blob/master/README.md#axis_ticks) - customize how ticks are generated and formatted.  
-    [*axis*.ticks](/doc/d3-axes.md#axis_ticks) - 定制ticks如何生成与格式化
+    [*axis*.ticks](/doc/d3-axes.md#axis_ticks) - 自定义刻度的生成和格式化方式
 * [*axis*.tickArguments](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickArguments) - customize how ticks are generated and formatted.  
-    [*axis*.tickArguments](/doc/d3-axes.md#axis_tickArguments) - 定制ticks如何生成与格式化
+    [*axis*.tickArguments](/doc/d3-axes.md#axis_tickArguments) - 自定义刻度的生成和格式化方式
 * [*axis*.tickValues](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickValues) - set the tick values explicitly.  
-    [*axis*.tickValues](/doc/d3-axes.md#axis_tickValues) - 设置tick定义的值
+    [*axis*.tickValues](/doc/d3-axes.md#axis_tickValues) - 明确地指定刻度值
 * [*axis*.tickFormat](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickFormat) - set the tick format explicitly.  
-    [*axis*.tickFormat](/doc/d3-axes.md#axis_tickFormat) - 设置tick格式化的值
+    [*axis*.tickFormat](/doc/d3-axes.md#axis_tickFormat) - 明确地指定刻度格式
 * [*axis*.tickSize](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSize) - set the size of the ticks.  
-    [*axis*.tickSize](/doc/d3-axes.md#axis_tickSize) - 设置tick的范围
+    [*axis*.tickSize](/doc/d3-axes.md#axis_tickSize) - 设置刻度的大小
 * [*axis*.tickSizeInner](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSizeInner) - set the size of inner ticks.  
-    [*axis*.tickSizeInner](/doc/d3-axes.md#axis_tickSizeInner) - 设置tick的Inner范围
+    [*axis*.tickSizeInner](/doc/d3-axes.md#axis_tickSizeInner) - 设置内刻度的大小
 * [*axis*.tickSizeOuter](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickSizeOuter) - set the size of outer (extent) ticks.  
-    [*axis*.tickSizeOuter](/doc/d3-axes.md#axis_tickSizeOuter) - 设置tick的Outer范围
+    [*axis*.tickSizeOuter](/doc/d3-axes.md#axis_tickSizeOuter) - 设置外刻度的大小
 * [*axis*.tickPadding](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickPadding) - set the padding between ticks and labels.  
-    [*axis*.tickPadding](/doc/d3-axes.md#axis_tickPadding) - 设置tick的Padding范围
+    [*axis*.tickPadding](/doc/d3-axes.md#axis_tickPadding) - 设置刻度和标签之间的间距
 
 ## [Brushes (d3-brush)](https://github.com/d3/d3-brush)
 
