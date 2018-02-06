@@ -94,7 +94,7 @@ Parses the specified [CSS Color Module Level 3](http://www.w3.org/TR/css3-color/
 
 The list of supported [named colors](http://www.w3.org/TR/SVG/types.html#ColorKeywords) is specified by CSS.
 
-该列表支持由指定css[命名的颜色](http://www.w3.org/TR/SVG/types.html#ColorKeywords)。
+该列表支持[命名的颜色](http://www.w3.org/TR/SVG/types.html#ColorKeywords)由CSS指定。
 
 Note: this function may also be used with `instanceof` to test if an object is a color instance. The same is true of color subclasses, allowing you to test whether a color is in a particular color space.
 
