@@ -272,11 +272,17 @@ Note that if no comparator function is specified to the built-in sort method, th
 
 ### Transformations
 
+### 变换
+
 Methods for transforming arrays and for generating new arrays.
+
+变换一个数组并生成新数组的方法。
 
 <a name="cross" href="#cross">#</a> d3.<b>cross</b>(<i>a</i>, <i>b</i>[, <i>reducer</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/cross.js "Source")
 
 Returns the [Cartesian product](https://en.wikipedia.org/wiki/Cartesian_product) of the two arrays *a* and *b*. For each element *i* in the specified array *a* and each element *j* in the specified array *b*, in order, invokes the specified *reducer* function passing the element *i* and element *j*. If a *reducer* is not specified, it defaults to a function which creates a two-element array for each pair:
+
+返回数组*a*和*b*的笛卡尔积。把数组*a*中的每个元素*i*和数组*b*中的每个元素*j*, 按顺序传入指定的*reudece*方法。如果没有指定*reducer*方法，默认会生成一个两个元素的数组。
 
 ```js
 function pair(a, b) {
@@ -285,6 +291,8 @@ function pair(a, b) {
 ```
 
 For example:
+
+例如：
 
 ```js
 d3.cross([1, 2], ["x", "y"]); // returns [[1, "x"], [1, "y"], [2, "x"], [2, "y"]]
@@ -295,7 +303,7 @@ d3.cross([1, 2], ["x", "y"], (a, b) => a + b); // returns ["1x", "1y", "2x", "2y
 
 Merges the specified *arrays* into a single array. This method is similar to the built-in array concat method; the only difference is that it is more convenient when you have an array of arrays.
 
-合并指定参数arrays 为一个数组，此方法和数组内置方法concat 类似；唯一不同是当你要处理二维数组时，d3.merge(arrays)方法更方便。
+合并指定多个数组为一个数组，此方法和数组内置方法concat类似；唯一不同是当你要处理多维数组时，d3.merge(arrays)方法更方便。
 
 ```js
 d3.merge([[1], [2, 3]]); // returns [1, 2, 3]
@@ -305,7 +313,7 @@ d3.merge([[1], [2, 3]]); // returns [1, 2, 3]
 
 For each adjacent pair of elements in the specified *array*, in order, invokes the specified *reducer* function passing the element *i* and element *i* - 1. If a *reducer* is not specified, it defaults to a function which creates a two-element array for each pair:
 
-对指定参数array中元素的每个相邻对，返回元组(元素i和元素i-1)的新数组。例如：
+对指定*array*中每个相邻元素对，将元素*i*和元素*i*-1按顺序传给指定的*reducer*。如果*ruducer*没有指定，默认创建一个两个元素的数组对：
 
 ```js
 function pair(a, b) {
@@ -322,16 +330,18 @@ d3.pairs([1, 2, 3, 4], (a, b) => b - a); // returns [1, 1, 1];
 
 If the specified array has fewer than two elements, returns the empty array.
 
-如果指定参数array 中少于两个元素，则返回一个空数组。
+如果指定参数array中少于两个元素，则返回一个空数组。
 
 <a name="permute" href="#permute">#</a> d3.<b>permute</b>(<i>array</i>, <i>indexes</i>) [<>](https://github.com/d3/d3-array/blob/master/src/permute.js "Source")
 
 Returns a permutation of the specified *array* using the specified array of *indexes*. The returned array contains the corresponding element in array for each index in indexes, in order. For example, permute(["a", "b", "c"], [1, 2, 0])
 returns ["b", "c", "a"]. It is acceptable for the array of indexes to be a different length from the array of elements, and for indexes to be duplicated or omitted.
 
+使用指定的*indexes*数组返回数组的转置。返回数组包含indexes数组中索引按顺序对应的元素。例如，permute(["a", "b", "c"], [1, 2, 0]) 返回 ["b", "c", "a"]。indexes长度和array长度不一样是可以接受的，indexes中的元素将会重复或者省略。
+
 This method can also be used to extract the values from an object into an array with a stable order. Extracting keyed values in order can be useful for generating data arrays in nested selections. For example:
 
-使用指定的indexes数组返回指定数组的转置。返回数组包含indexes数组中索引对应的元素，按顺序。例如，permute(["a", "b", "c"], [1, 2, 0]) 返回 ["b", "c", "a"]。indexes数组的长度和array中的元素长度不一样是可以接受的，并且允许indexes数组重复或者省略。 这个方法可以用来按固定顺序提取对象中的值到一个数组中。（在JavaScript中indexes数组是和.length有特殊关系的简单属性）。按顺序提取带键的值可以用来生成嵌套选择中的数据数组。例如，我们可以用表格形式展示上述的一些明尼苏达州大麦产量数据：
+这个方法可以用来按固定顺序提取对象中的值到一个数组中。按顺序提取带键的值可以用来生成嵌套选择中的数据数组。例如：
 
 ```js
 var object = {yield: 27, variety: "Manchuria", year: 1931, site: "University Farm"},
@@ -344,29 +354,43 @@ d3.permute(object, fields); // returns ["University Farm", "Manchuria", 27]
 
 Randomizes the order of the specified *array* using the [Fisher–Yates shuffle](http://bost.ocks.org/mike/shuffle/).
 
+使用[费雪耶兹随机置乱算法](http://bost.ocks.org/mike/shuffle/)随机打乱给定数组的顺序。
+
 <a name="ticks" href="#ticks">#</a> d3.<b>ticks</b>(<i>start</i>, <i>stop</i>, <i>count</i>) [<>](https://github.com/d3/d3-array/blob/master/src/ticks.js "Source")
 
 Returns an array of approximately *count* + 1 uniformly-spaced, nicely-rounded values between *start* and *stop* (inclusive). Each value is a power of ten multiplied by 1, 2 or 5. See also [d3.tickIncrement](#tickIncrement), [d3.tickStep](#tickStep) and [*linear*.ticks](https://github.com/d3/d3-scale/blob/master/README.md#linear_ticks).
 
+返回一个介于*start*和*stop*(包括)之间*count* + 1近似等分数组。每个值都是10的指数（1,2或5）次方。也可以参考[[d3.tickIncrement](#tickIncrement)，[d3.tickStep](#tickStep)和[*linear*.ticks](https://github.com/d3/d3-scale/blob/master/README.md#linear_ticks)。
+
 Ticks are inclusive in the sense that they may include the specified *start* and *stop* values if (and only if) they are exact, nicely-rounded values consistent with the inferred [step](#tickStep). More formally, each returned tick *t* satisfies *start* ≤ *t* and *t* ≤ *stop*.
+
+当且仅当*start*到*stop*能正好分到step份时才包含start和stop。更多情况，每个步长*t*满足*start*≤ *t* 并且 *t* ≤ *stop*。
 
 <a name="tickIncrement" href="#tickIncrement">#</a> d3.<b>tickIncrement</b>(<i>start</i>, <i>stop</i>, <i>count</i>) [<>](https://github.com/d3/d3-array/blob/master/src/ticks.js#L16 "Source")
 
 Like [d3.tickStep](#tickStep), except requires that *start* is always less than or equal to *step*, and if the tick step for the given *start*, *stop* and *count* would be less than one, returns the negative inverse tick step instead. This method is always guaranteed to return an integer, and is used by [d3.ticks](#ticks) to avoid guarantee that the returned tick values are represented as precisely as possible in IEEE 754 floating point.
 
+像[d3.tickStep](#tickStep)，除了需要*start*小于等于*stop*外，如果给的*count*小于1，返回的分割将会用负的步长。这个方法总是会返回一个整数，[d3.ticks](#ticks)调用时返回的数值尽量满足IEEE 754的精度。
+
 <a name="tickStep" href="#tickStep">#</a> d3.<b>tickStep</b>(<i>start</i>, <i>stop</i>, <i>count</i>) [<>](https://github.com/d3/d3-array/blob/master/src/ticks.js#L16 "Source")
 
 Returns the difference between adjacent tick values if the same arguments were passed to [d3.ticks](#ticks): a nicely-rounded value that is a power of ten multiplied by 1, 2 or 5. Note that due to the limited precision of IEEE 754 floating point, the returned value may not be exact decimals; use [d3-format](https://github.com/d3/d3-format) to format numbers for human consumption.
+
+把相同的参数传给[d3.ticks](#ticks)相比，相邻tick不同的地方是：近似的值是10的1,2或5次方。注意精度受IEEE 754的限制，返回的数值可能不是精确的小数；用 [d3-format](https://github.com/d3/d3-format)格式化数字变成可读的数字。
 
 <a name="range" href="#range">#</a> d3.<b>range</b>([<i>start</i>, ]<i>stop</i>[, <i>step</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/range.js "Source")
 
 Returns an array containing an arithmetic progression, similar to the Python built-in [range](http://docs.python.org/library/functions.html#range). This method is often used to iterate over a sequence of uniformly-spaced numeric values, such as the indexes of an array or the ticks of a linear scale. (See also [d3.ticks](#ticks) for nicely-rounded values.)
 
+生成一个包含算数级数的数组，类似于Python的内置函数[range](http://docs.python.org/library/functions.html#range)。这个方法常用来遍历一个数字序列或者整型数值。例如数组中的索引或者线性比例尺的刻度。
+
 If *step* is omitted, it defaults to 1. If *start* is omitted, it defaults to 0. The *stop* value is exclusive; it is not included in the result. If *step* is positive, the last element is the largest *start* + *i* \* *step* less than *stop*; if *step* is negative, the last element is the smallest *start* + *i* \* *step* greater than *stop*. If the returned array would contain an infinite number of values, an empty range is returned.
+
+如果省略step，默认值是1。如果省略*start*参数，默认值就是0。结果中不包含*stop*值。如果*step*是正的，则最后一个元素是小于*stop*的最大*start* + *i* \* *step*; 如果*step*是负的，最后一个元素是大于*stop*的最小*start* + *i* \* *step*。如果结果数组中包含无限循环小数，将会返回一个空的范围。
 
 The arguments are not required to be integers; however, the results are more predictable if they are. The values in the returned array are defined as *start* + *i* \* *step*, where *i* is an integer from zero to one minus the total number of elements in the returned array. For example:
 
-生成一个包含算数级数的数组，类似于Python的内置函数range。这个方法常用来遍历一个数字序列或者整型数值。例如数组中的索引。不同于Python版本，这个参数不必是整形。尽管如果它们是浮点精度类型时这个结果更加可预测。如果省略step，默认值是1。如果省略start参数，默认值就是0。结果中不包含stop值。完整的形式是返回一个数字数组[start,start+step,start+2 *step,…]。如果step是正的，则最后一个元素是小于stop的start+ i*step中的最大数值；如果step是负的，最后一个元素是大于stop的start + i*step中的最小数值。如果返回的数组将包含值无限多数字，就会抛出一个错误，而不是造成无限循环。
+参数不要求是整型；但是，如果它们是整型数结果会可预见些。返回数组的元素是*start* + *i* \* *step*，*i*是0到返回数组长度-1的整数。
 
 ```js
 d3.range(0, 1, 0.2) // [0, 0.2, 0.4, 0.6000000000000001, 0.8]
