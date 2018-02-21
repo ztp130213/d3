@@ -6,7 +6,7 @@
 
 ## Resources
 
-* [API Reference](https://github.com/d3/d3/blob/master/API.md)
+* [API Reference](/API.md)
 * [Release Notes](https://github.com/d3/d3/releases)
 * [Gallery](https://github.com/d3/d3/wiki/Gallery)
 * [Examples](https://bl.ocks.org/mbostock)
