@@ -390,7 +390,7 @@ If *step* is omitted, it defaults to 1. If *start* is omitted, it defaults to 0.
 
 The arguments are not required to be integers; however, the results are more predictable if they are. The values in the returned array are defined as *start* + *i* \* *step*, where *i* is an integer from zero to one minus the total number of elements in the returned array. For example:
 
-参数不要求是整型；但是，如果它们是整型数结果会可预见些。返回数组的元素是*start* + *i* \* *step*，*i*是0到返回数组长度-1的整数。
+参数不要求是整型；但是，如果它们是整型数结果会可预见些。返回数组的元素是*start* + *i* \* *step*，*i*是0到返回数组长度-1的整数。例如：
 
 ```js
 d3.range(0, 1, 0.2) // [0, 0.2, 0.4, 0.6000000000000001, 0.8]
@@ -398,7 +398,11 @@ d3.range(0, 1, 0.2) // [0, 0.2, 0.4, 0.6000000000000001, 0.8]
 
 This unexpected behavior is due to IEEE 754 double-precision floating point, which defines 0.2 * 3 = 0.6000000000000001. Use [d3-format](https://github.com/d3/d3-format) to format numbers for human consumption with appropriate rounding; see also [linear.tickFormat](https://github.com/d3/d3-scale/blob/master/README.md#linear_tickFormat) in [d3-scale](https://github.com/d3/d3-scale).
 
+上面这个不符合预期的行为是IEEE 754双精度浮点数引起的，0.2 * 3 = 0.6000000000000001。使用[d3-format](https://github.com/d3/d3-format)近似格式化数据；也可以查看d3-scale](https://github.com/d3/d3-scale)的[linear.tickFormat](https://github.com/d3/d3-scale/blob/master/README.md#linear_tickFormat)。
+
 Likewise, if the returned array should have a specific length, consider using [array.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) on an integer range. For example:
+
+同样的，如果返回的数组的长度固定，可以在一个整数的range上使用[array.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)。例如：
 
 ```js
 d3.range(0, 1, 1 / 49); // BAD: returns 50 elements!
@@ -409,13 +413,13 @@ d3.range(49).map(function(d) { return d / 49; }); // GOOD: returns 49 elements.
 
 Uses the [zip](#zip) operator as a two-dimensional [matrix transpose](http://en.wikipedia.org/wiki/Transpose).
 
-等价于d3.zip.apply(null, matrix)；使用zip操作符作为二维矩阵变换(matrix transpose)。
+使用zip操作符作为二维[矩阵变换](http://en.wikipedia.org/wiki/Transpose)。
 
 <a name="zip" href="#zip">#</a> d3.<b>zip</b>(<i>arrays…</i>) [<>](https://github.com/d3/d3-array/blob/master/src/zip.js "Source")
 
 Returns an array of arrays, where the *i*th array contains the *i*th element from each of the argument *arrays*. The returned array is truncated in length to the shortest array in *arrays*. If *arrays* contains only a single array, the returned array contains one-element arrays. With no arguments, the returned array is empty.
 
-返回的数组的数组，其中，第i个数组包含来自每个arrays参数的第i个元素。返回的数组长度被截断为arrays的最短的数组的长度。如果arrays只包含一个数组，则返回的数组是包含一个元素的数组。不带任何参数，则返回的数组是空的。
+返回的数组的数组，其中，第i个数组包含来自每个arrays参数的第i个元素。返回的数组长度被截断为arrays中最短数组的长度。如果arrays只包含一个数组，则返回的数组是只包含一个元素的数组。如果不带任何参数，则返回的数组是空的。
 
 ```js
 d3.zip([1, 2], [3, 4]); // returns [[1, 3], [2, 4]]
@@ -423,20 +427,31 @@ d3.zip([1, 2], [3, 4]); // returns [[1, 3], [2, 4]]
 
 ### Histograms
 
+### 直方图
+
 [<img src="https://raw.githubusercontent.com/d3/d3-array/master/img/histogram.png" width="480" height="250" alt="Histogram">](http://bl.ocks.org/mbostock/3048450)
 
 Histograms bin many discrete samples into a smaller number of consecutive, non-overlapping intervals. They are often used to visualize the distribution of numerical data.
+
+Histograms bin把样本分成离散的连续的没有重叠的等间的数据。他们通常用于可视化分散的数值数组。
 
 <a name="histogram" href="#histogram">#</a> d3.<b>histogram</b>() [<>](https://github.com/d3/d3-array/blob/master/src/histogram.js "Source")
 
 Constructs a new histogram generator with the default settings.
 
+构造一个默认参数的直方图生成器。
+
 <a name="_histogram" href="#_histogram">#</a> <i>histogram</i>(<i>data</i>) [<>](https://github.com/d3/d3-array/blob/master/src/histogram.js#L14 "Source")
 
 Computes the histogram for the given array of *data* samples. Returns an array of bins, where each bin is an array containing the associated elements from the input *data*. Thus, the `length` of the bin is the number of elements in that bin. Each bin has two additional attributes:
 
+计算给定数组的直方图。返回直条属性的数组，每个直条都包含输入数据的相关元素。因此，每个直条包括两个属性：
+
 * `x0` - the lower bound of the bin (inclusive).
 * `x1` - the upper bound of the bin (exclusive, except for the last bin).
+
+* `x0` - 直条最小的边界 (包括).
+* `x1` - 直条最大的边界 (处理最后一个直条，不包括).
 
 <a name="histogram_value" href="#histogram_value">#</a> <i>histogram</i>.<b>value</b>([<i>value</i>]) [<>](https://github.com/d3/d3-array/blob/master/src/histogram.js#L58 "Source")
 
@@ -476,6 +491,8 @@ Any threshold values outside the [domain](#histogram_domain) are ignored. The fi
 If a *count* is specified instead of an array of *thresholds*, then the [domain](#histogram_domain) will be uniformly divided into approximately *count* bins; see [ticks](#ticks).
 
 ### Histogram Thresholds
+
+### 直方图阈值
 
 These functions are typically not used directly; instead, pass them to [*histogram*.thresholds](#histogram_thresholds). You may also implement your own threshold generator taking three arguments: the array of input [*values*](#histogram_value) derived from the data, and the [observable domain](#histogram_domain) represented as *min* and *max*. The generator may then return either the array of numeric thresholds or the *count* of bins; in the latter case the domain is divided uniformly into approximately *count* bins; see [ticks](#ticks).
 
