@@ -62,7 +62,7 @@ D3是[一些一起运行模块的集合](https://github.com/d3)；你可以单�
 * [Selections](#selections-d3-selection) ([Selecting](#selecting-elements), [Modifying](#modifying-elements), [Data](#joining-data), [Events](#handling-events), [Control](#control-flow), [Local Variables](#local-variables), [Namespaces](#namespaces))
 * [选择器](#selections-d3-selection) ([选择](#selecting-elements), [修改](#modifying-elements), [Data](#joining-data), [事件](#handling-events), [控制](#control-flow), [本地变量](#local-variables), [命名空间](#namespaces))
 * [Shapes](#shapes-d3-shape) ([Arcs](#arcs), [Pies](#pies), [Lines](#lines), [Areas](#areas), [Curves](#curves), [Links](#links), [Symbols](#symbols), [Stacks](#stacks))
-* [形状](#shapes-d3-shape) ([弧](#arcs), [饼](#pies), [线](#lines), [面积](#areas), [曲线](#curves), [链接](#links), [符号](#symbols), [堆叠](#stacks))
+* [形状](#shapes-d3-shape) ([弧](#arcs), [饼](#pies), [线](#lines), [区域](#areas), [曲线](#curves), [链接](#links), [符号](#symbols), [堆叠](#stacks))
 * [Time Formats](#time-formats-d3-time-format)
 * [时间格式化](#time-formats-d3-time-format)
 * [Time Intervals](#time-intervals-d3-time)
@@ -82,64 +82,121 @@ D3使用[语义化版本](http://semver.org/)。当前版本发布为d3.version�
 
 ## [Arrays (d3-array)](https://github.com/d3/d3-array)
 
+## [数组 (d3-array)](https://github.com/d3/d3-array)
+
 Array manipulation, ordering, searching, summarizing, etc.
+
+数组操作，排序，搜索，汇总等。
 
 ### [Statistics](https://github.com/d3/d3-array/blob/master/README.md#statistics)
 
+### [统计](doc/d3-array.md#%E7%BB%9F%E8%AE%A1)
+
 Methods for computing basic summary statistics.
 
+基本的汇总统计方法。
+
 * [d3.min](https://github.com/d3/d3-array/blob/master/README.md#min) - compute the minimum value in an array.
+* [d3.min](doc/d3-array.md#min) - 计算数组中的最小值。
 * [d3.max](https://github.com/d3/d3-array/blob/master/README.md#max) - compute the maximum value in an array.
+* [d3.max](doc/d3-array.md#max) - 计算数组中的最大值。
 * [d3.extent](https://github.com/d3/d3-array/blob/master/README.md#extent) - compute the minimum and maximum value in an array.
+* [d3.extent](doc/d3-array.md#extent) - 计算数组的范围。
 * [d3.sum](https://github.com/d3/d3-array/blob/master/README.md#sum) - compute the sum of an array of numbers.
+* [d3.sum](doc/d3-array.md#sum) - 数组中所有元素求和。
 * [d3.mean](https://github.com/d3/d3-array/blob/master/README.md#mean) - compute the arithmetic mean of an array of numbers.
+* [d3.mean](doc/d3-array.md#mean) - 计算数组的算术平均值。
 * [d3.median](https://github.com/d3/d3-array/blob/master/README.md#median) - compute the median of an array of numbers (the 0.5-quantile).
+* [d3.median](doc/d3-array.md#median) - 计算数组的中位数。
 * [d3.quantile](https://github.com/d3/d3-array/blob/master/README.md#quantile) - compute a quantile for a sorted array of numbers.
+* [d3.quantile](doc/d3-array.md#quantile) -  - 计算一个数字数组排序后的分位数。
 * [d3.variance](https://github.com/d3/d3-array/blob/master/README.md#variance) - compute the variance of an array of numbers.
+* [d3.variance](doc/d3-array.md#variance) - 数组中数字的方差。
 * [d3.deviation](https://github.com/d3/d3-array/blob/master/README.md#deviation) - compute the standard deviation of an array of numbers.
+* [d3.deviation](doc/d3-array.md#deviation) - 数组中数字的标准差。
 
 ### [Search](https://github.com/d3/d3-array/blob/master/README.md#search)
 
+### [查询](doc/d3-array.md#%E6%90%9C%E7%B4%A2)
+
 Methods for searching arrays for a specific element.
 
+查询一个特定元素的方法。
+
 * [d3.scan](https://github.com/d3/d3-array/blob/master/README.md#scan) - linear search for an element using a comparator.
+* [d3.scan](doc/d3-array.md#scan) - 使用比较器线查找。
 * [d3.bisect](https://github.com/d3/d3-array/blob/master/README.md#bisect) - binary search for a value in a sorted array.
+* [d3.bisect](doc/d3-array.md#bisect) - 二分查找排序数组中的值。
 * [d3.bisectRight](https://github.com/d3/d3-array/blob/master/README.md#bisectRight) - binary search for a value in a sorted array.
+* [d3.bisectRight](doc/d3-array.md#bisectRight) - 二分查找排序数组中的值。
 * [d3.bisectLeft](https://github.com/d3/d3-array/blob/master/README.md#bisectLeft) - binary search for a value in a sorted array.
+* [d3.bisectLeft](doc/d3-array.md#bisectLeft) - 二分查找排序数组中的值。
 * [d3.bisector](https://github.com/d3/d3-array/blob/master/README.md#bisector) - bisect using an accessor or comparator.
+* [d3.bisector](doc/d3-array.md#bisector) - 使用访问器和比较器二分查找。
 * [*bisector*.left](https://github.com/d3/d3-array/blob/master/README.md#bisector_left) - bisectLeft, with the given comparator.
+* [*bisector*.left](doc/d3-array.md#bisector_left) - 使用给定的比较器的bisectLeft。
 * [*bisector*.right](https://github.com/d3/d3-array/blob/master/README.md#bisector_right) - bisectRight, with the given comparator.
+* [*bisector*.right](doc/d3-array.md#bisector_right) - 使用给定的比较器的bisectRight。
 * [d3.ascending](https://github.com/d3/d3-array/blob/master/README.md#ascending) - compute the natural order of two values.
+* [d3. ascending](doc/d3-array.md#ascending) - 升序排序。
 * [d3.descending](https://github.com/d3/d3-array/blob/master/README.md#descending) - compute the natural order of two values.
+* [d3.descending](doc/d3-array.md#descending) - 降序排序。
 
 ### [Transformations](https://github.com/d3/d3-array/blob/master/README.md#transformations)
 
+### [转换](https://github.com/d3/d3-array/blob/master/README.md#transformations)
+
 Methods for transforming arrays and for generating new arrays.
 
+把一个数组转换成一个新数组的方法。
+
 * [d3.cross](https://github.com/d3/d3-array/blob/master/README.md#cross) - compute the Cartesian product of two arrays.
+* [d3.cross](doc/d3-array.md#cross) - 两个数组的笛卡尔积。
 * [d3.merge](https://github.com/d3/d3-array/blob/master/README.md#merge) - merge multiple arrays into one array.
+* [d3.merge](doc/d3-array.md#merge) - 将多个数组合并成一个。
 * [d3.pairs](https://github.com/d3/d3-array/blob/master/README.md#pairs) - create an array of adjacent pairs of elements.
+* [d3.pairs](doc/d3-array.md#pairs) - 数组邻接对。
 * [d3.permute](https://github.com/d3/d3-array/blob/master/README.md#permute) - reorder an array of elements according to an array of indexes.
+* [d3.permute](doc/d3-array.md#permute) - 安装指定的索引数组重排数组。
 * [d3.shuffle](https://github.com/d3/d3-array/blob/master/README.md#shuffle) - randomize the order of an array.
+* [d3.shuffle](doc/d3-array.md#shuffle) - 数组随机排序。
 * [d3.ticks](https://github.com/d3/d3-array/blob/master/README.md#ticks) - generate representative values from a numeric interval.
+* [d3.ticks](doc/d3-array.md#ticks) - 从一个数组间隔生成有代表的值，刻度值。
 * [d3.tickIncrement](https://github.com/d3/d3-array/blob/master/README.md#tickIncrement) - generate representative values from a numeric interval.
+* [d3.tickIncrement](doc/d3-array.md#tickIncrement) - 增量（ticks中用到）。
 * [d3.tickStep](https://github.com/d3/d3-array/blob/master/README.md#tickStep) - generate representative values from a numeric interval.
+* [d3.tickStep](doc/d3-array.md#tickStep) - 从一个数组间隔生成有代表的步长。
 * [d3.range](https://github.com/d3/d3-array/blob/master/README.md#range) - generate a range of numeric values.
+* [d3.range](doc/d3-array.md#range) - 生成一定范围内的数组。
 * [d3.transpose](https://github.com/d3/d3-array/blob/master/README.md#transpose) - transpose an array of arrays.
+* [d3.transpose](doc/d3-array.md#transpose) - 数组转置。
 * [d3.zip](https://github.com/d3/d3-array/blob/master/README.md#zip) - transpose a variable number of arrays.
+* [d3.zip](doc/d3-array.md#zip) -  转置多个数组。
 
 ### [Histograms](https://github.com/d3/d3-array/blob/master/README.md#histograms)
 
+### [直方图](https://github.com/d3/d3-array/blob/master/README.md#histograms)
+
 Bin discrete samples into continuous, non-overlapping intervals.
 
+把离散的样本数据转成连续的没有重叠的间隔数据。
+
 * [d3.histogram](https://github.com/d3/d3-array/blob/master/README.md#histogram) - create a new histogram generator.
+* [d3.histogram](doc/d3-array.md#histogram) - 创建一个新的直方图生成器。
 * [*histogram*](https://github.com/d3/d3-array/blob/master/README.md#_histogram) - compute the histogram for the given array of samples.
+* [*histogram*](doc/d3-array.md#_histogram) - 对给定的样本数组计算直方图。
 * [*histogram*.value](https://github.com/d3/d3-array/blob/master/README.md#histogram_value) - specify a value accessor for each sample.
+* [*histogram*.value](doc/d3-array.md#histogram_value) - 为每个样本指定一个值访问器。
 * [*histogram*.domain](https://github.com/d3/d3-array/blob/master/README.md#histogram_domain) - specify the interval of observable values.
+* [*histogram*.domain](doc/d3-array.md#histogram_domain) - 指定可观测值的间隔。
 * [*histogram*.thresholds](https://github.com/d3/d3-array/blob/master/README.md#histogram_thresholds) - specify how values are divided into bins.
+* [*histogram*.thresholds](doc/d3-array.md#histogram_thresholds) - 指定值划分成不同箱的方法。
 * [d3.thresholdFreedmanDiaconis](https://github.com/d3/d3-array/blob/master/README.md#thresholdFreedmanDiaconis) - the Freedman–Diaconis binning rule.
+* [d3.thresholdFreedmanDiaconis](doc/d3-array.md#thresholdFreedmanDiaconis) - Freedman–Diaconis装箱规则。
 * [d3.thresholdScott](https://github.com/d3/d3-array/blob/master/README.md#thresholdScott) - Scott’s normal reference binning rule.
+* [d3.thresholdScott](doc/d3-array.md#thresholdScott) - Scott’s normal reference装箱规则。
 * [d3.thresholdSturges](https://github.com/d3/d3-array/blob/master/README.md#thresholdSturges) - Sturges’ binning formula.
+* [d3.thresholdSturges](doc/d3-array.md#thresholdSturges) - Sturges’装箱准则。
 
 ## [Axes (d3-axis)](https://github.com/d3/d3-axis)
 
@@ -266,17 +323,40 @@ Group data into arbitrary hierarchies.
 
 Color manipulation and color space conversion.
 
+颜色处理和色彩空间转换
+
 * [d3.color](https://github.com/d3/d3-color/blob/master/README.md#color) - parse the given CSS color specifier.
+* [d3.color](https://github.com/d3/d3-color/blob/master/README.md#color) - 解析给出的css颜色说明符
+
 * [*color*.rgb](https://github.com/d3/d3-color/blob/master/README.md#color_rgb) - compute the RGB equivalent of this color.
+* [*color*.rgb](https://github.com/d3/d3-color/blob/master/README.md#color_rgb) - 计算此颜色RGB的等效值
+
 * [*color*.brighter](https://github.com/d3/d3-color/blob/master/README.md#color_brighter) - create a brighter copy of this color.
+* [*color*.brighter](https://github.com/d3/d3-color/blob/master/README.md#color_brighter) - 创建此颜色较亮的副本
+
 * [*color*.darker](https://github.com/d3/d3-color/blob/master/README.md#color_darker) - create a darker copy of this color.
+* [*color*.darker](https://github.com/d3/d3-color/blob/master/README.md#color_darker) - 创建此颜色较暗的副本
+
 * [*color*.displayable](https://github.com/d3/d3-color/blob/master/README.md#color_displayable) - returns true if the color is displayable on standard hardware.
+* [*color*.displayable](https://github.com/d3/d3-color/blob/master/README.md#color_displayable) - 如果颜色可显示在标准硬件则返回true
+
 * [*color*.toString](https://github.com/d3/d3-color/blob/master/README.md#color_toString) - returns the RGB string representation of this color.
+* [*color*.toString](https://github.com/d3/d3-color/blob/master/README.md#color_toString) - 返回这个颜色的rgb字符串
+
 * [d3.rgb](https://github.com/d3/d3-color/blob/master/README.md#rgb) - create a new RGB color.
+* [d3.rgb](https://github.com/d3/d3-color/blob/master/README.md#rgb) - 创建一个新的RGB颜色
+
 * [d3.hsl](https://github.com/d3/d3-color/blob/master/README.md#hsl) - create a new HSL color.
+* [d3.hsl](https://github.com/d3/d3-color/blob/master/README.md#hsl) - 创建一个新的HSL颜色
+
 * [d3.lab](https://github.com/d3/d3-color/blob/master/README.md#lab) - create a new Lab color.
+* [d3.lab](https://github.com/d3/d3-color/blob/master/README.md#lab) - 创建一个新的Lab颜色
+
 * [d3.hcl](https://github.com/d3/d3-color/blob/master/README.md#hcl) - create a new HCL color.
+* [d3.hcl](https://github.com/d3/d3-color/blob/master/README.md#hcl) - 创建一个新的HCL颜色
+
 * [d3.cubehelix](https://github.com/d3/d3-color/blob/master/README.md#cubehelix) - create a new Cubehelix color.
+* [d3.cubehelix](https://github.com/d3/d3-color/blob/master/README.md#cubehelix) - 创建一个新的Cubehelix颜色
 
 ## [Contours (d3-contour)](https://github.com/d3/d3-contour)
 
