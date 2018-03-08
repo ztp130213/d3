@@ -77,7 +77,7 @@ Continuous scales map a continuous, quantitative input [domain](#continuous_doma
 
 Given a *value* from the [domain](#continuous_domain), returns the corresponding value from the [range](#continuous_range). If the given *value* is outside the domain, and [clamping](#continuous_clamp) is not enabled, the mapping may be extrapolated such that the returned value is outside the range. For example, to apply a position encoding:
 
-
+给定一个值从域，返回从相应的值范围。如果给定的值在域外，并且未启用钳位，则可以外推映射，使得返回的值超出范围。例如，要应用位置编码：
 
 ```js
 var x = d3.scaleLinear()
@@ -103,7 +103,7 @@ color(50); // "#7b5167"
 
 Given a *value* from the [range](#continuous_range), returns the corresponding value from the [domain](#continuous_domain). Inversion is useful for interaction, say to determine the data value corresponding to the position of the mouse. For example, to invert a position encoding:
 
-    给定一个值从范围，返回从相应的值域。反转对交互很有用，比如确定与鼠标位置相对应的数据值。例如，要反转位置编码：
+给定一个值从范围，返回从相应的值域。反转对交互很有用，比如确定与鼠标位置相对应的数据值。例如，要反转位置编码：
     
 ```js
 var x = d3.scaleLinear()
