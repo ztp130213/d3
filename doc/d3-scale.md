@@ -244,7 +244,7 @@ Note: the [default interpolator](https://github.com/d3/d3-interpolate#interpolat
 
 Returns approximately *count* representative values from the scale’s [domain](#continuous_domain). If *count* is not specified, it defaults to 10. The returned tick values are uniformly spaced, have human-readable values (such as multiples of powers of 10), and are guaranteed to be within the extent of the domain. Ticks are often used to display reference lines, or tick marks, in conjunction with the visualized data. The specified *count* is only a hint; the scale may return more or fewer values depending on the domain. See also d3-array’s [ticks](https://github.com/d3/d3-array#ticks).
 
-返回约数从规模上的代表值域。如果未指定count，则默认为10.返回的刻度值是均匀间隔的，具有人类可读的值（例如10的幂的倍数），并且保证在该范围内。刻度通常用于显示参考线或刻度线，并与可视化数据结合使用。指定的计数只是一个提示; 规模可能会返回更多或更少的值，具体取决于域。另请参阅d3数组的刻度
+返回约数从规模上的代表值域。如果未指定count，则默认为10.返回的刻度值是均匀间隔的，具有可读的值（例如10的幂的倍数），并且保证在该范围内。刻度通常用于显示参考线或刻度线，并与可视化数据结合使用。指定的计数只是一个提示; 规模可能会返回更多或更少的值，具体取决于域。另请参阅d3数组的刻度
 
 <a name="continuous_tickFormat" href="#continuous_tickFormat">#</a> <i>continuous</i>.<b>tickFormat</b>([<i>count</i>[, <i>specifier</i>]]) [<>](https://github.com/d3/d3-scale/blob/master/src/tickFormat.js "Source")
 
@@ -278,7 +278,7 @@ Extends the [domain](#continuous_domain) so that it starts and ends on nice roun
 Nicing a scale only modifies the current domain; it does not automatically nice domains that are subsequently set using [*continuous*.domain](#continuous_domain). You must re-nice the scale after setting the new domain, if desired.
 
 
-扩展域，使其开始并以不错的一轮值结束。此方法通常会修改比例的域，并且可能只会将边界扩展到最近的轮值。可选的滴答计数参数允许更好地控制用于扩展边界的步长，从而保证返回的滴答精确地覆盖该域。如果域是根据数据进行计算的，例如使用范围，并且可能不规则，则Nicing很有用。例如，对于[0.201479 ...，0.996679 ...]的域，一个很好的域可能是[0.2,1.0]。如果该域有两个以上的值，则禁止域仅影响第一个和最后一个值。另请参阅d3-array的tickStep。
+扩展域，使其开始并以不错的一轮值结束。此方法通常会修改比例的域，并且可能只会将边界扩展近似值。可选的滴答计数参数允许更好地控制用于扩展边界的步长，从而保证返回的滴答精确地覆盖该域。如果域是根据数据进行计算的，例如使用范围，并且可能不规则，则Nicing很有用。例如，对于[0.201479 ...，0.996679 ...]的域，一个很好的域可能是[0.2,1.0]。如果该域有两个以上的值，则禁止域仅影响第一个和最后一个值。另请参阅d3-array的tickStep。
 缩小比例只会修改当前域; 它不会自动使用连续的 .domain进行设置。如果需要，您必须在设置新域后重新调整比例。
 
 <a name="continuous_copy" href="#continuous_copy">#</a> <i>continuous</i>.<b>copy</b>() [<>](https://github.com/d3/d3-scale/blob/master/src/continuous.js#L59 "Source")
@@ -583,7 +583,7 @@ Note: in some cases, such as with day ticks, specifying a *step* can result in i
 
 Returns a time format function suitable for displaying [tick](#time_ticks) values. The specified *count* or *interval* is currently ignored, but is accepted for consistency with other scales such as [*continuous*.tickFormat](#continuous_tickFormat). If a format *specifier* is specified, this method is equivalent to [format](https://github.com/d3/d3-time-format#format). If *specifier* is not specified, the default time format is returned. The default multi-scale time format chooses a human-readable representation based on the specified date as follows:
 
-返回适合显示刻度值的时间格式函数。指定的计数或时间间隔目前被忽略，但为了与其他尺度保持一致，continuous.tickFormat被接受。如果指定了格式说明符，则此方法与格式相同。如果符未指定，则返回默认的时间格式。默认多尺度时间格式根据指定的日期选择一个人类可读的表示，如下所示：
+返回适合显示刻度值的时间格式函数。指定的计数或时间间隔目前被忽略，但为了与其他尺度保持一致，continuous.tickFormat被接受。如果指定了格式说明符，则此方法与格式相同。如果符未指定，则返回默认的时间格式。默认多尺度时间格式根据指定的日期选择一个可读的表示，如下所示：
 
 * `%Y` - for year boundaries, such as `2011`.
 * `%B` - for month boundaries, such as `February`.
@@ -608,7 +608,7 @@ An optional tick *count* argument allows greater control over the step size used
 
 Nicing is useful if the domain is computed from data, say using [extent](https://github.com/d3/d3-array#extent), and may be irregular. For example, for a domain of [2009-07-13T00:02, 2009-07-13T23:48], the nice domain is [2009-07-13, 2009-07-14]. If the domain has more than two values, nicing the domain only affects the first and last value.
 
-扩展域，使其开始并以nice round值结束。此方法通常会修改比例的域，并且可能只会将边界扩展到最近的轮值。有关更多信息，请参见continuous.nice。
+扩展域，使其开始并以近似值结束。此方法通常会修改比例的域，并且可能只会将边界扩展到近似值。有关更多信息，请参见continuous.nice。
 
 可选的滴答计数参数允许更好地控制用于扩展边界的步长，从而保证返回的滴答精确地覆盖该域。或者，可以指定时间间隔来明确设置滴答。如果指定了时间间隔，则还可以指定一个可选步骤来跳过一些滴答声。例如，time.nice(d3.timeSecond, 10)将域扩展到10秒（0,10,20 等）。请参阅time .ticks和interval .every以获取更多详细信息。
 

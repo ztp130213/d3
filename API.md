@@ -837,8 +837,8 @@ Map a continuous, quantitative domain to a continuous range.
 * [*continuous*.clamp](/doc/d3-scale.md#continuous_clamp) - 启用钳位到域或范围。
 * [*continuous*.interpolate](/doc/d3-scale.md#continuous_interpolate) - 设置输出插补器。  
 * [*continuous*.ticks](/doc/d3-scale.md#continuous_ticks) - 计算域中的代表值。  
-* [*continuous*.tickFormat](/doc/d3-scale.md#continuous_tickFormat) - 符合有关标准的格式刻度。
-* [*continuous*.nice](/doc/d3-scale.md#continuous_nice) - 将域扩展到准确的整数。
+* [*continuous*.tickFormat](/doc/d3-scale.md#continuous_tickFormat) - 格式化成可读的刻度。
+* [*continuous*.nice](/doc/d3-scale.md#continuous_nice) - 将域扩展到近似的整数。
 * [*continuous*.copy](/doc/d3-scale.md#continuous_copy) - 创建这个比例的副本。
 * [d3.scaleLinear](/doc/d3-scale.md#scaleLinear) - 创建一个定量线性标度。
 * [d3.scalePow](/doc/d3-scale.md#scalePow) - 创建一个定量功率比例。 
@@ -851,8 +851,8 @@ Map a continuous, quantitative domain to a continuous range.
 * [*pow*.clamp](/doc/d3-scale.md#pow_clamp) -  启用钳位到域或范围。
 * [*pow*.interpolate](/doc/d3-scale.md#pow_interpolate) - 设置输出插补器。
 * [*pow*.ticks](/doc/d3-scale.md#pow_ticks) - 计算域中的代表值。
-* [*pow*.tickFormat](/doc/d3-scale.md#pow_tickFormat) - 符合有关标准的格式刻度。
-* [*pow*.nice](/doc/d3-scale.md#pow_nice) - 延长域准确的轮数。
+* [*pow*.tickFormat](/doc/d3-scale.md#pow_tickFormat) - 格式化成可读的刻度。
+* [*pow*.nice](/doc/d3-scale.md#pow_nice) - 延长域近似的轮数。
 * [*pow*.copy](/doc/d3-scale.md#pow_copy) - 创建此比例的副本。
 * [d3.scaleSqrt](/doc/d3-scale.md#scaleSqrt) - 创建指数为0.5的定量功率等级。
 * [d3.scaleLog](/doc/d3-scale.md#scaleLog) - 创建一个定量的对数尺度。
@@ -865,8 +865,8 @@ Map a continuous, quantitative domain to a continuous range.
 * [*log*.clamp](/doc/d3-scale.md#log_clamp) -  启用夹紧到域或范围。
 * [*log*.interpolate](/doc/d3-scale.md#log_interpolate) - 设置输出插补器。
 * [*log*.ticks](/doc/d3-scale.md#log_ticks) - 计算域中的代表值。
-* [*log*.tickFormat](/doc/d3-scale.md#log_tickFormat) - 符合有关标准的格式刻度。
-* [*log*.nice](/doc/d3-scale.md#log_nice) - 将域扩展到准确的整数。
+* [*log*.tickFormat](/doc/d3-scale.md#log_tickFormat) - 格式化成可读的刻度。
+* [*log*.nice](/doc/d3-scale.md#log_nice) - 将域扩展到近似的整数。
 * [*log*.copy](/doc/d3-scale.md#log_copy) - 创建此刻度的副本。
 * [d3.scaleIdentity](/doc/d3-scale.md#identity) - 创建一个定量的身份标度。
 * [d3.scaleTime](/doc/d3-scale.md#scaleTime) - 为时间创建线性比例。
@@ -878,8 +878,8 @@ Map a continuous, quantitative domain to a continuous range.
 * [*time*.clamp](/doc/d3-scale.md#time_clamp) - 启用钳位到域或范围。
 * [*time*.interpolate](/doc/d3-scale.md#time_interpolate) - 设置输出插补器。
 * [*time*.ticks](/doc/d3-scale.md#time_ticks) - 计算域中的代表值
-* [*time*.tickFormat](/doc/d3-scale.md#time_tickFormat) - 符合有关标准的格式刻度。
-* [*time*.nice](/doc/d3-scale.md#time_nice) - 将域扩展到准确的轮次。
+* [*time*.tickFormat](/doc/d3-scale.md#time_tickFormat) - 格式化成可读的刻度。
+* [*time*.nice](/doc/d3-scale.md#time_nice) - 将域扩展到近似的轮次。
 * [*time*.copy](/doc/d3-scale.md#time_copy) - 创建此刻度的副本。
 * [d3.scaleUtc](/doc/d3-scale.md#scaleUtc) - 为UTC创建线性比例。
 
