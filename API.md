@@ -819,67 +819,69 @@ Generate random numbers from various distributions.
 * [d3.randomExponential](https://github.com/d3/d3-random/blob/master/README.md#randomExponential) - from an exponential distribution.
 * [*random*.source](https://github.com/d3/d3-random/blob/master/README.md#random_source) - set the source of randomness.
 
-## [Scales (d3-scale)](https://github.com/d3/d3-scale)
+## [Scales (d3-scale)](/doc/d3-scale.md)
 
 Encodings that map abstract data to visual representation.
+
+将抽象数据映射到可视化表示的编码。
 
 ### [Continuous Scales](https://github.com/d3/d3-scale/blob/master/README.md#continuous-scales)
 
 Map a continuous, quantitative domain to a continuous range.
 
-* [*continuous*](https://github.com/d3/d3-scale/blob/master/README.md#_continuous) - compute the range value corresponding to a given domain value.
-* [*continuous*.invert](https://github.com/d3/d3-scale/blob/master/README.md#continuous_invert) - compute the domain value corresponding to a given range value.
-* [*continuous*.domain](https://github.com/d3/d3-scale/blob/master/README.md#continuous_domain) - set the input domain.
-* [*continuous*.range](https://github.com/d3/d3-scale/blob/master/README.md#continuous_range) - set the output range.
-* [*continuous*.rangeRound](https://github.com/d3/d3-scale/blob/master/README.md#continuous_rangeRound) - set the output range and enable rounding.
-* [*continuous*.clamp](https://github.com/d3/d3-scale/blob/master/README.md#continuous_clamp) - enable clamping to the domain or range.
-* [*continuous*.interpolate](https://github.com/d3/d3-scale/blob/master/README.md#continuous_interpolate) - set the output interpolator.
-* [*continuous*.ticks](https://github.com/d3/d3-scale/blob/master/README.md#continuous_ticks) - compute representative values from the domain.
-* [*continuous*.tickFormat](https://github.com/d3/d3-scale/blob/master/README.md#continuous_tickFormat) - format ticks for human consumption.
-* [*continuous*.nice](https://github.com/d3/d3-scale/blob/master/README.md#continuous_nice) - extend the domain to nice round numbers.
-* [*continuous*.copy](https://github.com/d3/d3-scale/blob/master/README.md#continuous_copy) - create a copy of this scale.
-* [d3.scaleLinear](https://github.com/d3/d3-scale/blob/master/README.md#scaleLinear) - create a quantitative linear scale.
-* [d3.scalePow](https://github.com/d3/d3-scale/blob/master/README.md#scalePow) - create a quantitative power scale.
-* [*pow*](https://github.com/d3/d3-scale/blob/master/README.md#_pow) - compute the range value corresponding to a given domain value.
-* [*pow*.invert](https://github.com/d3/d3-scale/blob/master/README.md#pow_invert) - compute the domain value corresponding to a given range value.
-* [*pow*.exponent](https://github.com/d3/d3-scale/blob/master/README.md#pow_exponent) - set the power exponent.
-* [*pow*.domain](https://github.com/d3/d3-scale/blob/master/README.md#pow_domain) - set the input domain.
-* [*pow*.range](https://github.com/d3/d3-scale/blob/master/README.md#pow_range) - set the output range.
-* [*pow*.rangeRound](https://github.com/d3/d3-scale/blob/master/README.md#pow_rangeRound) - set the output range and enable rounding.
-* [*pow*.clamp](https://github.com/d3/d3-scale/blob/master/README.md#pow_clamp) - enable clamping to the domain or range.
-* [*pow*.interpolate](https://github.com/d3/d3-scale/blob/master/README.md#pow_interpolate) - set the output interpolator.
-* [*pow*.ticks](https://github.com/d3/d3-scale/blob/master/README.md#pow_ticks) - compute representative values from the domain.
-* [*pow*.tickFormat](https://github.com/d3/d3-scale/blob/master/README.md#pow_tickFormat) - format ticks for human consumption.
-* [*pow*.nice](https://github.com/d3/d3-scale/blob/master/README.md#pow_nice) - extend the domain to nice round numbers.
-* [*pow*.copy](https://github.com/d3/d3-scale/blob/master/README.md#pow_copy) - create a copy of this scale.
-* [d3.scaleSqrt](https://github.com/d3/d3-scale/blob/master/README.md#scaleSqrt) - create a quantitative power scale with exponent 0.5.
-* [d3.scaleLog](https://github.com/d3/d3-scale/blob/master/README.md#scaleLog) - create a quantitative logarithmic scale.
-* [*log*](https://github.com/d3/d3-scale/blob/master/README.md#_log) - compute the range value corresponding to a given domain value.
-* [*log*.invert](https://github.com/d3/d3-scale/blob/master/README.md#log_invert) - compute the domain value corresponding to a given range value.
-* [*log*.base](https://github.com/d3/d3-scale/blob/master/README.md#log_base) - set the logarithm base.
-* [*log*.domain](https://github.com/d3/d3-scale/blob/master/README.md#log_domain) - set the input domain.
-* [*log*.range](https://github.com/d3/d3-scale/blob/master/README.md#log_range) - set the output range.
-* [*log*.rangeRound](https://github.com/d3/d3-scale/blob/master/README.md#log_rangeRound) - set the output range and enable rounding.
-* [*log*.clamp](https://github.com/d3/d3-scale/blob/master/README.md#log_clamp) - enable clamping to the domain or range.
-* [*log*.interpolate](https://github.com/d3/d3-scale/blob/master/README.md#log_interpolate) - set the output interpolator.
-* [*log*.ticks](https://github.com/d3/d3-scale/blob/master/README.md#log_ticks) - compute representative values from the domain.
-* [*log*.tickFormat](https://github.com/d3/d3-scale/blob/master/README.md#log_tickFormat) - format ticks for human consumption.
-* [*log*.nice](https://github.com/d3/d3-scale/blob/master/README.md#log_nice) - extend the domain to nice round numbers.
-* [*log*.copy](https://github.com/d3/d3-scale/blob/master/README.md#log_copy) - create a copy of this scale.
-* [d3.scaleIdentity](https://github.com/d3/d3-scale/blob/master/README.md#identity) - create a quantitative identity scale.
-* [d3.scaleTime](https://github.com/d3/d3-scale/blob/master/README.md#scaleTime) - create a linear scale for time.
-* [*time*](https://github.com/d3/d3-scale/blob/master/README.md#_time) - compute the range value corresponding to a given domain value.
-* [*time*.invert](https://github.com/d3/d3-scale/blob/master/README.md#time_invert) - compute the domain value corresponding to a given range value.
-* [*time*.domain](https://github.com/d3/d3-scale/blob/master/README.md#time_domain) - set the input domain.
-* [*time*.range](https://github.com/d3/d3-scale/blob/master/README.md#time_range) - set the output range.
-* [*time*.rangeRound](https://github.com/d3/d3-scale/blob/master/README.md#time_rangeRound) - set the output range and enable rounding.
-* [*time*.clamp](https://github.com/d3/d3-scale/blob/master/README.md#time_clamp) - enable clamping to the domain or range.
-* [*time*.interpolate](https://github.com/d3/d3-scale/blob/master/README.md#time_interpolate) - set the output interpolator.
-* [*time*.ticks](https://github.com/d3/d3-scale/blob/master/README.md#time_ticks) - compute representative values from the domain.
-* [*time*.tickFormat](https://github.com/d3/d3-scale/blob/master/README.md#time_tickFormat) - format ticks for human consumption.
-* [*time*.nice](https://github.com/d3/d3-scale/blob/master/README.md#time_nice) - extend the domain to nice round times.
-* [*time*.copy](https://github.com/d3/d3-scale/blob/master/README.md#time_copy) - create a copy of this scale.
-* [d3.scaleUtc](https://github.com/d3/d3-scale/blob/master/README.md#scaleUtc) - create a linear scale for UTC.
+* [*continuous*](/doc/d3-scale.md#_continuous) - 计算与给定域值对应的范围值。  
+* [*continuous*.invert](/doc/d3-scale.md#continuous_invert) - 计算与给定范围值对应的域值。  
+* [*continuous*.domain](/doc/d3-scale.md#continuous_domain) - 设置输入域。  
+* [*continuous*.range](/doc/d3-scale.md#continuous_range) - 设置输出范围。
+* [*continuous*.rangeRound](/doc/d3-scale.md#continuous_rangeRound) - 设置输出范围并启用舍入。
+* [*continuous*.clamp](/doc/d3-scale.md#continuous_clamp) - 启用钳位到域或范围。
+* [*continuous*.interpolate](/doc/d3-scale.md#continuous_interpolate) - 设置输出插补器。  
+* [*continuous*.ticks](/doc/d3-scale.md#continuous_ticks) - 计算域中的代表值。  
+* [*continuous*.tickFormat](/doc/d3-scale.md#continuous_tickFormat) - 格式化成可读的刻度。
+* [*continuous*.nice](/doc/d3-scale.md#continuous_nice) - 将域扩展到近似的整数。
+* [*continuous*.copy](/doc/d3-scale.md#continuous_copy) - 创建这个比例的副本。
+* [d3.scaleLinear](/doc/d3-scale.md#scaleLinear) - 创建一个定量线性标度。
+* [d3.scalePow](/doc/d3-scale.md#scalePow) - 创建一个定量功率比例。 
+* [*pow*](/doc/d3-scale.md#_pow) - 计算对应给定域值的范围值。
+* [*pow*.invert](/doc/d3-scale.md#pow_invert) - 计算与给定范围值对应的域值。  
+* [*pow*.exponent](/doc/d3-scale.md#pow_exponent) - 设置功率指数。
+* [*pow*.domain](/doc/d3-scale.md#pow_domain) - 设置输入域。
+* [*pow*.range](/doc/d3-scale.md#pow_range) - 设置输出范围。
+* [*pow*.rangeRound](/doc/d3-scale.md#pow_rangeRound) - 设置输出范围并启用舍入。
+* [*pow*.clamp](/doc/d3-scale.md#pow_clamp) -  启用钳位到域或范围。
+* [*pow*.interpolate](/doc/d3-scale.md#pow_interpolate) - 设置输出插补器。
+* [*pow*.ticks](/doc/d3-scale.md#pow_ticks) - 计算域中的代表值。
+* [*pow*.tickFormat](/doc/d3-scale.md#pow_tickFormat) - 格式化成可读的刻度。
+* [*pow*.nice](/doc/d3-scale.md#pow_nice) - 延长域近似的轮数。
+* [*pow*.copy](/doc/d3-scale.md#pow_copy) - 创建此比例的副本。
+* [d3.scaleSqrt](/doc/d3-scale.md#scaleSqrt) - 创建指数为0.5的定量功率等级。
+* [d3.scaleLog](/doc/d3-scale.md#scaleLog) - 创建一个定量的对数尺度。
+* [*log*](/doc/d3-scale.md#_log) - 计算与给定域值对应的范围值。
+* [*log*.invert](/doc/d3-scale.md#log_invert) - 计算与给定范围值对应的域值。  
+* [*log*.base](/doc/d3-scale.md#log_base) - 设置对数基数。
+* [*log*.domain](/doc/d3-scale.md#log_domain) - 设置输入域。
+* [*log*.range](/doc/d3-scale.md#log_range) - 设置输出范围。
+* [*log*.rangeRound](/doc/d3-scale.md#log_rangeRound) - 设置输出范围并启用舍入。
+* [*log*.clamp](/doc/d3-scale.md#log_clamp) -  启用夹紧到域或范围。
+* [*log*.interpolate](/doc/d3-scale.md#log_interpolate) - 设置输出插补器。
+* [*log*.ticks](/doc/d3-scale.md#log_ticks) - 计算域中的代表值。
+* [*log*.tickFormat](/doc/d3-scale.md#log_tickFormat) - 格式化成可读的刻度。
+* [*log*.nice](/doc/d3-scale.md#log_nice) - 将域扩展到近似的整数。
+* [*log*.copy](/doc/d3-scale.md#log_copy) - 创建此刻度的副本。
+* [d3.scaleIdentity](/doc/d3-scale.md#identity) - 创建一个定量的身份标度。
+* [d3.scaleTime](/doc/d3-scale.md#scaleTime) - 为时间创建线性比例。
+* [*time*](/doc/d3-scale.md#_time) - 计算与给定域值对应的范围值。
+* [*time*.invert](/doc/d3-scale.md#time_invert) - 计算与给定范围值对应的域值。 
+* [*time*.domain](/doc/d3-scale.md#time_domain) - 设置输入域。 
+* [*time*.range](/doc/d3-scale.md#time_range) - 设置输出范围。 
+* [*time*.rangeRound](/doc/d3-scale.md#time_rangeRound) - 设置输出范围并启用舍入。 
+* [*time*.clamp](/doc/d3-scale.md#time_clamp) - 启用钳位到域或范围。
+* [*time*.interpolate](/doc/d3-scale.md#time_interpolate) - 设置输出插补器。
+* [*time*.ticks](/doc/d3-scale.md#time_ticks) - 计算域中的代表值
+* [*time*.tickFormat](/doc/d3-scale.md#time_tickFormat) - 格式化成可读的刻度。
+* [*time*.nice](/doc/d3-scale.md#time_nice) - 将域扩展到近似的轮次。
+* [*time*.copy](/doc/d3-scale.md#time_copy) - 创建此刻度的副本。
+* [d3.scaleUtc](/doc/d3-scale.md#scaleUtc) - 为UTC创建线性比例。
 
 ### [Sequential Scales](https://github.com/d3/d3-scale/blob/master/README.md#sequential-scales)
 
