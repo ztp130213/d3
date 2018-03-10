@@ -224,7 +224,11 @@ See [*dispatch*.on](https://github.com/d3/d3-dispatch#dispatch_on) for details.
 
 ### Forces
 
+### Forces
+
 A *force* is simply a function that modifies nodes’ positions or velocities; in this context, a *force* can apply a classical physical force such as electrical charge or gravity, or it can resolve a geometric constraint, such as keeping nodes within a bounding box or keeping linked nodes a fixed distance apart. For example, a simple positioning force that moves nodes towards the origin ⟨0,0⟩ might be implemented as:
+
+*力*是一个修改节点位置或速度的函数; 它可以模拟电荷或重力之类的经典物理力，也可以模拟几何约束，例如将节点保持在边界框内或保持相连节点间距恒定。例如，将节点移动到原点 <0,0> 的简单定位力可以实现为：
 
 ```js
 function force(alpha) {
@@ -238,7 +242,11 @@ function force(alpha) {
 
 Forces typically read the node’s current position ⟨*x*,*y*⟩ and then add to (or subtract from) the node’s velocity ⟨*vx*,*vy*⟩. However, forces may also “peek ahead” to the anticipated next position of the node, ⟨*x* + *vx*,*y* + *vy*⟩; this is necessary for resolving geometric constraints through [iterative relaxation](https://en.wikipedia.org/wiki/Relaxation_\(iterative_method\)). Forces may also modify the position directly, which is sometimes useful to avoid adding energy to the simulation, such as when recentering the simulation in the viewport.
 
+力通常读取节点的当前位置 ⟨*x*,*y*⟩，然后添加到节点的速度 ⟨*vx*,*vy*⟩，或者从速度中减去位置。通过 ⟨*x* + *vx*,*y* + *vy*⟩，力也可以“预见”到节点的下一个位置; 这对于通过[迭代放松](https://en.wikipedia.org/wiki/Relaxation_\(iterative_method\))来解决几何约束是必需的。力也可以直接修改位置，这可避免向模拟器增加能量，例如，可用于在视口中重定位模拟器。
+
 Simulations typically compose multiple forces as desired. This module provides several for your enjoyment:
+
+模拟器通常根据需要组合多个力。本模块提供了下面几种力的类型：
 
 * [Centering](#centering)
 * [Collision](#collision)
@@ -247,6 +255,8 @@ Simulations typically compose multiple forces as desired. This module provides s
 * [Positioning](#positioning)
 
 Forces may optionally implement [*force*.initialize](#force_initialize) to receive the simulation’s array of nodes.
+
+Forces 可以选择实现 [*force*.initialize](#force_initialize)  来接收模拟器的节点数组。
 
 <a name="_force" href="#_force">#</a> <i>force</i>(<i>alpha</i>) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L44 "Source")
 
