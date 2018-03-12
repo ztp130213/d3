@@ -326,37 +326,37 @@ Color manipulation and color space conversion.
 颜色处理和色彩空间转换
 
 * [d3.color](https://github.com/d3/d3-color/blob/master/README.md#color) - parse the given CSS color specifier.
-* [d3.color](https://github.com/d3/d3-color/blob/master/README.md#color) - 解析给出的css颜色说明符
+* [d3.color](doc/d3-color.md#color) - 解析给出的css颜色说明符
 
 * [*color*.rgb](https://github.com/d3/d3-color/blob/master/README.md#color_rgb) - compute the RGB equivalent of this color.
-* [*color*.rgb](https://github.com/d3/d3-color/blob/master/README.md#color_rgb) - 计算此颜色RGB的等效值
+* [*color*.rgb](doc/d3-color.md#color_rgb) - 计算此颜色RGB的等效值
 
 * [*color*.brighter](https://github.com/d3/d3-color/blob/master/README.md#color_brighter) - create a brighter copy of this color.
-* [*color*.brighter](https://github.com/d3/d3-color/blob/master/README.md#color_brighter) - 创建此颜色较亮的副本
+* [*color*.brighter](doc/d3-color.md#color_brighter) - 创建此颜色较亮的副本
 
 * [*color*.darker](https://github.com/d3/d3-color/blob/master/README.md#color_darker) - create a darker copy of this color.
-* [*color*.darker](https://github.com/d3/d3-color/blob/master/README.md#color_darker) - 创建此颜色较暗的副本
+* [*color*.darker](doc/d3-color.md#color_darker) - 创建此颜色较暗的副本
 
 * [*color*.displayable](https://github.com/d3/d3-color/blob/master/README.md#color_displayable) - returns true if the color is displayable on standard hardware.
-* [*color*.displayable](https://github.com/d3/d3-color/blob/master/README.md#color_displayable) - 如果颜色可显示在标准硬件则返回true
+* [*color*.displayable](doc/d3-color.md#color_displayable) - 如果颜色可显示在标准硬件则返回true
 
 * [*color*.toString](https://github.com/d3/d3-color/blob/master/README.md#color_toString) - returns the RGB string representation of this color.
-* [*color*.toString](https://github.com/d3/d3-color/blob/master/README.md#color_toString) - 返回这个颜色的rgb字符串
+* [*color*.toString](doc/d3-color.md#color_toString) - 返回这个颜色的rgb字符串
 
 * [d3.rgb](https://github.com/d3/d3-color/blob/master/README.md#rgb) - create a new RGB color.
-* [d3.rgb](https://github.com/d3/d3-color/blob/master/README.md#rgb) - 创建一个新的RGB颜色
+* [d3.rgb](doc/d3-color.md#rgb) - 创建一个新的RGB颜色
 
 * [d3.hsl](https://github.com/d3/d3-color/blob/master/README.md#hsl) - create a new HSL color.
-* [d3.hsl](https://github.com/d3/d3-color/blob/master/README.md#hsl) - 创建一个新的HSL颜色
+* [d3.hsl](doc/d3-color.md#hsl) - 创建一个新的HSL颜色
 
 * [d3.lab](https://github.com/d3/d3-color/blob/master/README.md#lab) - create a new Lab color.
-* [d3.lab](https://github.com/d3/d3-color/blob/master/README.md#lab) - 创建一个新的Lab颜色
+* [d3.lab](doc/d3-color.md#lab) - 创建一个新的Lab颜色
 
 * [d3.hcl](https://github.com/d3/d3-color/blob/master/README.md#hcl) - create a new HCL color.
-* [d3.hcl](https://github.com/d3/d3-color/blob/master/README.md#hcl) - 创建一个新的HCL颜色
+* [d3.hcl](doc/d3-color.md#hcl) - 创建一个新的HCL颜色
 
 * [d3.cubehelix](https://github.com/d3/d3-color/blob/master/README.md#cubehelix) - create a new Cubehelix color.
-* [d3.cubehelix](https://github.com/d3/d3-color/blob/master/README.md#cubehelix) - 创建一个新的Cubehelix颜色
+* [d3.cubehelix](doc/d3-color.md#cubehelix) - 创建一个新的Cubehelix颜色
 
 ## [Contours (d3-contour)](https://github.com/d3/d3-contour)
 
