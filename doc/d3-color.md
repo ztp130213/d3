@@ -4,7 +4,7 @@
 
 Even though your browser understands a lot about colors, it doesn’t offer much help in manipulating colors through JavaScript. The d3-color module therefore provides representations for various color spaces, allowing specification, conversion and manipulation. (Also see [d3-interpolate](https://github.com/d3/d3-interpolate) for color interpolation.)
 
-即使你的浏览器里面有很多关于colors的内容，但是在用js操作colors上也不能提供太多的帮助。因此d3-color模块提供了对色彩空间的各种表示，允许规范、转换和操作。（也可以看[d3-interpolate](https://github.com/d3/d3-interpolate)对color的补充）
+即使通过你的浏览器能识别渲染出很多颜色，但是在用js操作colors上也不能提供太多的帮助。因此d3-color模块提供了对色彩空间的各种表示，允许规范、转换和操作。（也可以看[d3-interpolate](https://github.com/d3/d3-interpolate)对color的补充）
 
 For example, take the color named “steelblue”:
 
@@ -16,7 +16,7 @@ var c = d3.color("steelblue"); // {r: 70, g: 130, b: 180, opacity: 1}
 
 Let’s try converting it to HSL:
 
-让我们试着把它转换成HSL：
+我们试着把它转换成HSL：
 
 ```js
 var c = d3.hsl("steelblue"); // {h: 207.27…, s: 0.44, l: 0.4902…, opacity: 1}
@@ -34,7 +34,7 @@ c + ""; // rgb(198, 45, 205)
 
 To fade the color slightly:
 
-去淡化颜色：
+淡化颜色：
 
 ```js
 c.opacity = 0.8;
