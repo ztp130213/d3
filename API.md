@@ -771,10 +771,15 @@ Serialize Canvas path commands to SVG.
 Geometric operations for two-dimensional polygons.
 
 * [d3.polygonArea](https://github.com/d3/d3-polygon/blob/master/README.md#polygonArea) - compute the area of the given polygon.
+* [d3.polygonArea](doc/d3-polygon.md#polygonArea) - 计算给定多边形的面积。  
 * [d3.polygonCentroid](https://github.com/d3/d3-polygon/blob/master/README.md#polygonCentroid) - compute the centroid of the given polygon.
+* [d3.polygonCentroid](doc/d3-polygon.md#polygonCentroid) - 计算给定多边形的质心。
 * [d3.polygonHull](https://github.com/d3/d3-polygon/blob/master/README.md#polygonHull) - compute the convex hull of the given points.
+* [d3.polygonHull](doc/d3-polygon.md#polygonHull) - 计算给定点的凸包。
 * [d3.polygonContains](https://github.com/d3/d3-polygon/blob/master/README.md#polygonContains) - test whether a point is inside a polygon.
+* [d3.polygonContains](doc/d3-polygon.md#polygonContains) - 测试点是否在多边形内。
 * [d3.polygonLength](https://github.com/d3/d3-polygon/blob/master/README.md#polygonLength) - compute the length of the given polygon’s perimeter.
+* [d3.polygonLength](doc/d3-polygon.md#polygonLength) - 计算给定多边形周长的长度。
 
 ## [Quadtrees (d3-quadtree)](https://github.com/d3/d3-quadtree)
 
