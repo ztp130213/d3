@@ -39,16 +39,16 @@ Returns the [centroid](https://en.wikipedia.org/wiki/Centroid) of the specified 
 
 Returns the [convex hull](https://en.wikipedia.org/wiki/Convex_hull) of the specified *points* using [Andrew’s monotone chain algorithm](http://en.wikibooks.org/wiki/Algorithm_Implementation/Geometry/Convex_hull/Monotone_chain). The returned hull is represented as an array containing a subset of the input *points* arranged in counterclockwise order. Returns null if *points* has fewer than three elements.
 
-使用Andrew的单调链算法返回指定点的凸包。返回的包表示为一个数组，其中包含按逆时针顺序排列的输入点子集。如果点少于三个元素，则返回null
+使用Andrew的单调链算法返回指定点的凸包。返回的块表示为一个数组，其中包含按逆时针顺序排列的输入点子集。如果点少于三个元素，则返回null。
 
 <a href="#polygonContains" name="polygonContains">#</a> d3.<b>polygonContains</b>(<i>polygon</i>, <i>point</i>) [<>](https://github.com/d3/d3-polygon/blob/master/src/contains.js#L1 "Source Code")
 
 Returns true if and only if the specified *point* is [inside the specified *polygon*](https://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html).
 
-当且仅当定的点是指定的内部多边形则返回tru。
+当且仅当定的点是指定的内部多边形则返回。
 
 <a href="#polygonLength" name="polygonLength">#</a> d3.<b>polygonLength</b>(<i>polygon</i>) [<>](https://github.com/d3/d3-polygon/blob/master/src/length.js#L1 "Source Code")
 
 Returns the length of the perimeter of the specified *polygon*.
 
-返回指定多边形周长的长度。
+返回指定多边形周长。
