@@ -260,11 +260,19 @@ Forces 可以选择实现 [*force*.initialize](#force_initialize)  来接收模�
 
 <a name="_force" href="#_force">#</a> <i>force</i>(<i>alpha</i>) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L44 "Source")
 
+<a name="_force" href="#_force">#</a> <i>force</i>(<i>alpha</i>) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L44 "Source")
+
 Applies this force, optionally observing the specified *alpha*. Typically, the force is applied to the array of nodes previously passed to [*force*.initialize](#force_initialize), however, some forces may apply to a subset of nodes, or behave differently. For example, [d3.forceLink](#links) applies to the source and target of each link.
+
+应用这种力，可选择观察指定的 *alpha*。 通常情况下，力会被施加到先前传递给 [*force*.initialize](#force_initialize) 的节点数组。但是，某些力可能会应用于节点的子集，或者产生不同的作用。 例如，[d3.forceLink](#links) 作用于链接的起始和目标节点。
+
+<a name="force_initialize" href="#force_initialize">#</a> <i>force</i>.<b>initialize</b>(<i>nodes</i>) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L71 "Source")
 
 <a name="force_initialize" href="#force_initialize">#</a> <i>force</i>.<b>initialize</b>(<i>nodes</i>) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L71 "Source")
 
 Assigns the array of *nodes* to this force. This method is called when a force is bound to a simulation via [*simulation*.force](#simulation_force) and when the simulation’s nodes change via [*simulation*.nodes](#simulation_nodes). A force may perform necessary work during initialization, such as evaluating per-node parameters, to avoid repeatedly performing work during each application of the force.
+
+将该力应用于节点数组。 当一个力通过 [*simulation*.force](#simulation_force) 绑定到模拟器并且通过 [*simulation*.nodes](#simulation_nodes) 发生改变时，这个方法会被调用。 力可以在初始化期间执行必要的工作，诸如计算每个节点的参数，以避免在每次施加力时重复计算。
 
 #### Centering
 
