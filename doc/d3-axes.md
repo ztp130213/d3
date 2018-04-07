@@ -4,7 +4,7 @@
 轴组件呈现人类可读的标度参考标记。这减轻了数据可视化中较繁琐的任务之一。
 
 ## 安装
-如果您使用NPM，`npm install d3-axis`。否则，请下载[最新版本](https://github.com/d3/d3-axis/releases/tag/v1.0.8)。您也可以直接从[d3js.org](https://d3js.org/)加载，作为独立的库或D3 4.0的一部分。（为了有效，您还需要使用d3-scale和d3-selection，但这些都是软依赖项。）支持AMD，CommonJS和vanilla环境。在vanillaJS中，一个d3全球性的出口：
+如果您使用NPM，`npm install d3-axis`。否则，请下载[最新版本](https://github.com/d3/d3-axis/releases/tag/v1.0.8)。您也可以直接从[d3js.org](https://d3js.org/)加载，作为独立的库或D3 4.0的一部分。（为了有效，您还需要使用d3-scale和d3-selection，但这些都是软依赖项。）支持AMD，CommonJS和原生环境。在原生JS中，一个d3全局出口：
 ```
 <script src="https://d3js.org/d3-axis.v1.min.js"></script>
 <script>
