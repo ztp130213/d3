@@ -45,7 +45,7 @@ Returns the [convex hull](https://en.wikipedia.org/wiki/Convex_hull) of the spec
 
 Returns true if and only if the specified *point* is [inside the specified *polygon*](https://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html).
 
-当且仅当定的点是指定的内部多边形则返回。
+当且仅当定的点是指定的内部多边形则返回true。
 
 <a href="#polygonLength" name="polygonLength">#</a> d3.<b>polygonLength</b>(<i>polygon</i>) [<>](https://github.com/d3/d3-polygon/blob/master/src/length.js#L1 "Source Code")
 
