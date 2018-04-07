@@ -2,7 +2,7 @@
 
 Visualize relationships or network flow with an aesthetically-pleasing circular layout.
 
-弦图用环形布局来清晰地展示关系或者网络流。
+弦图用环形布局来清晰地展示关系或者网络流。
 
 [<img alt="Chord Diagram" src="https://raw.githubusercontent.com/d3/d3-chord/master/img/chord.png" width="480" height="480">](http://bl.ocks.org/mbostock/4062006)
 
@@ -11,7 +11,7 @@ Visualize relationships or network flow with an aesthetically-pleasing circular 
 
 If you use NPM, `npm install d3-chord`. Otherwise, download the [latest release](https://github.com/d3/d3-chord/releases/latest). You can also load directly from [d3js.org](https://d3js.org), either as a [standalone library](https://d3js.org/d3-chord.v1.min.js) or as part of [D3 4.0](https://github.com/d3/d3). AMD, CommonJS, and vanilla environments are supported. In vanilla, a `d3` global is exported:
 
-如果使用NPM,可通过`npm install d3-chord`命令直接安装。
+如果使用NPM,可通过`npm install d3-chord`命令直接安装。
 或者通过github下载[最新版本](https://github.com/d3/d3-chord/releases/latest)，也可以通过[d3js.org](https://d3js.org)直接下载[单独的文件](https://d3js.org/d3-chord.v1.min.js)或者整个[D3包](https://github.com/d3/d3)。AMD、 CommonJS和原生环境都支持引用，原生的引入方式如下例：
 ```html
 <script src="https://d3js.org/d3-array.v1.min.js"></script>
@@ -39,7 +39,7 @@ Constructs a new chord layout with the default settings.
 
 Computes the chord layout for the specified square *matrix* of size *n*×*n*, where the *matrix* represents the directed flow amongst a network (a complete digraph) of *n* nodes. The given *matrix* must be an array of length *n*, where each element *matrix*[*i*] is an array of *n* numbers, where each *matrix*[*i*][*j*] represents the flow from the *i*th node in the network to the *j*th node. Each number *matrix*[*i*][*j*] must be nonnegative, though it can be zero if there is no flow from node *i* to node *j*. From the [Circos tableviewer example](http://mkweb.bcgsc.ca/circos/guide/tables/):
 
-给定一个 *n*×*n* 的方形矩阵，函数根据矩阵构造一个弦布局。矩阵表示的是一个网络图（完全有向图）中 *n* 个节点的走向，而且矩阵必须是长度为 *n* 的数组，数组中每个元素 *matrix*[*i*] 也必须是一个数字组成的长度为 *n* 的数组。矩阵中每个值 *matrix*[*i*][*j*] 代表网络图中节点 *i* 到 *j* 的走向，且值必须为非负，0 则表示节点 *i* 到 *j* 之间没有连通。以下是[Circos tableviewer](http://mkweb.bcgsc.ca/circos/guide/tables/)中的例子:
+给定一个 *n*×*n* 的方矩阵，函数根据矩阵构造一个弦布局。矩阵表示的是一个网络图（完全有向图）中 *n* 个节点的走向，而且矩阵必须是长度为 *n* 的数组，数组中每个元素 *matrix*[*i*] 也必须是一个数字组成的长度为 *n* 的数组。矩阵中每个值 *matrix*[*i*][*j*] 代表网络图中节点 *i* 到 *j* 的走向，且值必须为非负，0 则表示节点 *i* 到 *j* 之间没有连通。以下是[Circos tableviewer](http://mkweb.bcgsc.ca/circos/guide/tables/)中的例子:
 
 ```js
 var matrix = [
@@ -88,7 +88,7 @@ The *chords* array also defines a secondary array of length *n*, *chords*.groups
 * `value` - the total outgoing flow value for node *i*
 * `index` - the node index *i*
 
-*chords* 数组同时也定义了一个二级数组 *chords*.groups，数组长度为n，每个元素表示节点 *i* 的流出对应关系矩阵中的数值 *matrix*[*i*][0 … *n* - 1]，每个元素都是包含以下属性的对象:
+*chords* 数组同时也定义了一个二级数组 *chords*.groups，数组长度为n，每个元素表示节点 *i* 的流出对应关系矩阵中的数值 *matrix*[*i*][0 … *n* - 1]，每个元素都是包含以下属性的对象:
 
 * `startAngle` - 弧的起始角度，单位为弧度
 * `endAngle` - 弧的终止角度，单位为弧度
@@ -97,7 +97,7 @@ The *chords* array also defines a secondary array of length *n*, *chords*.groups
 
 The groups are typically passed to [d3.arc](https://github.com/d3/d3-shape#arc) to produce a donut chart around the circumference of the chord layout.
 
-groups数组通常作为参数传值给方法[d3.arc](https://github.com/d3/d3-shape#arc)，在线布局周围生成一个圈图。 
+groups数组通常作为参数传值给方法[d3.arc](https://github.com/d3/d3-shape#arc)，在弦布局周围生成一个圈图。 
 
 <a href="#chord_padAngle" name="#chord_padAngle">#</a> <i>chord</i>.<b>padAngle</b>([<i>angle</i>]) [<>](https://github.com/d3/d3-chord/blob/master/src/chord.js#L104 "Source")
 
@@ -109,19 +109,19 @@ If *angle* is specified, sets the pad angle between adjacent groups to the speci
 
 If *compare* is specified, sets the group comparator to the specified function or null and returns this chord layout. If *compare* is not specified, returns the current group comparator, which defaults to null. If the group comparator is non-null, it is used to sort the groups by their total outflow. See also [d3.ascending](https://github.com/d3/d3-array#ascending) and [d3.descending](https://github.com/d3/d3-array#descending).
 
-如果给定了 *compare* 的值，将分组比较器定义为指定的函数或 null 并返回对应的弦图。如果未指定 *compare*，返回的弦图分组比较器为默认值null。分组比较器不为null时，用于根据总的流出量对groups数组排序。同时可参阅[d3.ascending](https://github.com/d3/d3-array#ascending) 和 [d3.descending](https://github.com/d3/d3-array#descending)。
+如果给定了 *compare* 的值，将分组比较器定义为指定的函数或 null 并返回对应的弦图。如果未指定 *compare*，返回的弦图分组比较器为默认值null。分组比较器不为null时，用于根据总的流出量对groups数组排序。同时可参阅[d3.ascending](https://github.com/d3/d3-array#ascending) 和 [d3.descending](https://github.com/d3/d3-array#descending)。
 
 <a href="#chord_sortSubgroups" name="#chord_sortSubgroups">#</a> <i>chord</i>.<b>sortSubgroups</b>([<i>compare</i>]) [<>](https://github.com/d3/d3-chord/blob/master/src/chord.js#L112 "Source")
 
 If *compare* is specified, sets the subgroup comparator to the specified function or null and returns this chord layout. If *compare* is not specified, returns the current subgroup comparator, which defaults to null. If the subgroup comparator is non-null, it is used to sort the subgroups corresponding to *matrix*[*i*][0 … *n* - 1] for a given group *i* by their total outflow. See also [d3.ascending](https://github.com/d3/d3-array#ascending) and [d3.descending](https://github.com/d3/d3-array#descending).
 
-如果给定了 *compare* 的值，将子分组比较器定义为指定的函数或 null 并返回对应的弦图。如果未指定 *compare*，返回的弦图子分组比较器为默认值null。分组比较器不为null时，用于根据总的流出量对子分组数组subgroups排序，传入比较器函数的参数为分组 *i* 对应的 *matrix*[*i*][0 … *n* - 1] 值。同时可参阅[d3.ascending](https://github.com/d3/d3-array#ascending) 和[d3.descending](https://github.com/d3/d3-array#descending)。
+如果给定了 *compare* 的值，将子分组比较器定义为指定的函数或 null 并返回对应的弦图。如果未指定 *compare*，返回的弦图子分组比较器为默认值null。分组比较器不为null时，用于根据总的流出量对子分组数组subgroups排序，传入比较器函数的参数为分组 *i* 对应的 *matrix*[*i*][0 … *n* - 1] 值。同时可参阅[d3.ascending](https://github.com/d3/d3-array#ascending) 和[d3.descending](https://github.com/d3/d3-array#descending)。
 
 <a href="#chord_sortChords" name="#chord_sortChords">#</a> <i>chord</i>.<b>sortChords</b>([<i>compare</i>]) [<>](https://github.com/d3/d3-chord/blob/master/src/chord.js#L116 "Source")
 
 If *compare* is specified, sets the chord comparator to the specified function or null and returns this chord layout. If *compare* is not specified, returns the current chord comparator, which defaults to null. If the chord comparator is non-null, it is used to sort the [chords](#_chord) by their combined flow; this only affects the *z*-order of the chords. See also [d3.ascending](https://github.com/d3/d3-array#ascending) and [d3.descending](https://github.com/d3/d3-array#descending).
 
-如果给定了 *compare* 的值，将弦对象比较器定义为指定的函数或 null 并返回对应的弦图。如果未指定 *compare*，返回的弦图弦对象比较器为默认值null。弦对象比较器不为null时，用于根据弦对象的组合流量对弦对象数组[chords](#_chord)排序，排序结果只影响弦对象数组的z顺序。同时可参阅[d3.ascending](https://github.com/d3/d3-array#ascending) 和[d3.descending](https://github.com/d3/d3-array#descending)。 
+如果给定了 *compare* 的值，将弦对象比较器定义为指定的函数或 null 并返回对应的弦图。如果未指定 *compare*，返回的弦图弦对象比较器为默认值null。弦对象比较器不为null时，用于根据弦对象的组合流量对弦对象数组[chords](#_chord)排序，排序结果只影响弦对象数组的z顺序。同时可参阅[d3.ascending](https://github.com/d3/d3-array#ascending) 和[d3.descending](https://github.com/d3/d3-array#descending)。 
 
 <a href="#ribbon" name="ribbon">#</a> d3.<b>ribbon</b>() [<>](https://github.com/d3/d3-chord/blob/master/src/ribbon.js "Source")
 
@@ -190,7 +190,7 @@ function target(d) {
 
 If *radius* is specified, sets the radius accessor to the specified function and returns this ribbon generator. If *radius* is not specified, returns the current radius accessor, which defaults to:
 
-如果给定 *radius*，则将弧度访问器函数定义为指定函数，函数返回值为带状图生成器。如果未指定 *radius*，返回当前的默认弧度访问器函数：
+如果给定 *radius*，则将弧度访问器函数定义为指定函数，函数返回值为带状图生成器。如果未指定 *radius*，返回当前的默认弧度访问器函数：
 
 ```js
 function radius(d) {
@@ -202,7 +202,7 @@ function radius(d) {
 
 If *angle* is specified, sets the start angle accessor to the specified function and returns this ribbon generator. If *angle* is not specified, returns the current start angle accessor, which defaults to:
 
-如果给定 *angle*，则将起始角访问器函数定义为指定函数，函数返回值为带状图生成器。如果未指定 *angle*，返回当前的默认起始角访问器函数：
+如果给定 *angle*，则将起始角访问器函数定义为指定函数，函数返回值为带状图生成器。如果未指定 *angle*，返回当前的默认起始角访问器函数：
 
 ```js
 function startAngle(d) {
@@ -218,7 +218,7 @@ The *angle* is specified in radians, with 0 at -*y* (12 o’clock) and positive 
 
 If *angle* is specified, sets the end angle accessor to the specified function and returns this ribbon generator. If *angle* is not specified, returns the current end angle accessor, which defaults to:
 
-如果给定 *angle*，则将终止角访问器函数定义为指定函数，函数返回值为带状图生成器。如果未指定 *angle*，返回当前的默认终止角访问器函数：
+如果给定 *angle*，则将终止角访问器函数定义为指定函数，函数返回值为带状图生成器。如果未指定 *angle*，返回当前的默认终止角访问器函数：
 
 ```js
 function endAngle(d) {
