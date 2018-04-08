@@ -97,7 +97,7 @@ This method can be used in conjunction with [*simulation*.stop](#simulation_stop
 
 If *nodes* is specified, sets the simulation’s nodes to the specified array of objects, initializing their positions and velocities if necessary, and then [re-initializes](#force_initialize) any bound [forces](#simulation_force); returns the simulation. If *nodes* is not specified, returns the simulation’s array of nodes as specified to the [constructor](#forceSimulation).
 
-如果给定了 *nodes*，模拟器的节点将会被设置为给定的数组，并根据需要初始化节点的位置和速度，然后[重新初始化](#force_initialize)[作用力](#simulation_force)；最后返回模拟器对象。如果 *nodes* 没有指定，将会返回传递给模拟器[构造函数](#forceSimulation)的节点数组。
+如果给定了 *nodes*，模拟器的节点将会被设置为给定的数组，并根据需要初始化节点的位置和速度，然后[重新初始化](#force_initialize)绑定的[作用力](#simulation_force)；最后返回模拟器对象。如果 *nodes* 没有指定，将会返回传递给模拟器[构造函数](#forceSimulation)的节点数组。
 
 Each *node* must be an object. The following properties are assigned by the simulation:
 
@@ -157,7 +157,7 @@ If *decay* is specified, sets the [*alpha*](#simulation_alpha) decay rate to the
 
 The alpha decay rate determines how quickly the current alpha interpolates towards the desired [target *alpha*](#simulation_alphaTarget); since the default target *alpha* is zero, by default this controls how quickly the simulation cools. Higher decay rates cause the simulation to stabilize more quickly, but risk getting stuck in a local minimum; lower values cause the simulation to take longer to run, but typically converge on a better layout. To have the simulation run forever at the current *alpha*, set the *decay* rate to zero; alternatively, set a [target *alpha*](#simulation_alphaTarget) greater than the [minimum *alpha*](#simulation_alphaMin).
 
-alpha 衰减速率决定了当前 alpha 值向预期的 [alpha 目标值](#simulation_alphaTarget)逼近的速度；由于默认的 *alpha* 目标值为0，所以这控制了模拟器的冷却速度。较高的衰减速率使模拟器更加稳定，但是也有可能会陷入局部最优；较低的速率将会使模拟器冷却时间延长，不过通常可以收敛到更好的布局效果。如果想要模拟器在当前的 *alpha* 值永远运行下去，可以将*衰减速率*设置为0；否则，将 [*alpha* 目标值](#simulation_alphaTarget) 设置为大于 [最小 *alpha* 值](#simulation_alphaMin)。
+alpha 衰减速率决定了当前 alpha 值向预期的 [alpha 目标值](#simulation_alphaTarget)逼近的速度；由于默认的 *alpha* 目标值为0，所以这控制了模拟器的冷却速度。较高的衰减速率使模拟器更快趋于稳定，但是也有可能会陷入局部最优；较低的速率将会使模拟器冷却时间延长，不过通常可以收敛到更好的布局效果。如果想要模拟器在当前的 *alpha* 值永远运行下去，可以将*衰减速率*设置为0；否则，将 [*alpha* 目标值](#simulation_alphaTarget) 设置为大于 [最小 *alpha* 值](#simulation_alphaMin)。
 
 <a name="simulation_alphaTarget" href="#simulation_alphaTarget">#</a> <i>simulation</i>.<b>alphaTarget</b>([<i>target</i>]) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L104 "Source")
 
@@ -260,11 +260,19 @@ Forces 可以选择实现 [*force*.initialize](#force_initialize)  来接收模�
 
 <a name="_force" href="#_force">#</a> <i>force</i>(<i>alpha</i>) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L44 "Source")
 
+<a name="_force" href="#_force">#</a> <i>force</i>(<i>alpha</i>) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L44 "Source")
+
 Applies this force, optionally observing the specified *alpha*. Typically, the force is applied to the array of nodes previously passed to [*force*.initialize](#force_initialize), however, some forces may apply to a subset of nodes, or behave differently. For example, [d3.forceLink](#links) applies to the source and target of each link.
+
+应用这种力，可选择观察指定的 *alpha*。 通常情况下，力会被施加到先前传递给 [*force*.initialize](#force_initialize) 的节点数组。但是，某些力可能会应用于节点的子集，或者产生不同的作用。 例如，[d3.forceLink](#links) 作用于链接的起始和目标节点。
+
+<a name="force_initialize" href="#force_initialize">#</a> <i>force</i>.<b>initialize</b>(<i>nodes</i>) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L71 "Source")
 
 <a name="force_initialize" href="#force_initialize">#</a> <i>force</i>.<b>initialize</b>(<i>nodes</i>) [<>](https://github.com/d3/d3-force/blob/master/src/simulation.js#L71 "Source")
 
 Assigns the array of *nodes* to this force. This method is called when a force is bound to a simulation via [*simulation*.force](#simulation_force) and when the simulation’s nodes change via [*simulation*.nodes](#simulation_nodes). A force may perform necessary work during initialization, such as evaluating per-node parameters, to avoid repeatedly performing work during each application of the force.
+
+将该力应用于节点数组。 当一个力通过 [*simulation*.force](#simulation_force) 绑定到模拟器并且通过 [*simulation*.nodes](#simulation_nodes) 发生改变时，这个方法会被调用。 力可以在初始化期间执行必要的工作，诸如计算每个节点的参数，以避免在每次施加力时重复计算。
 
 #### Centering
 
