@@ -181,7 +181,7 @@ See also [axis.ticks](https://github.com/d3/d3-axis/blob/master/README.md#axis_t
 
 If a values array is specified, the specified values are used for ticks rather than using the scale’s automatic tick generator. If values is null, clears any previously-set explicit tick values and reverts back to the scale’s tick generator. If values is not specified, returns the current tick values, which defaults to null. For example, to generate ticks at specific values:
 
-如果指定了values数组，则指定的值将用于ticks，而不是使用scale的自动tick生成器。如果值为空，则清除任何先前设置的显式刻度值，然后返回到刻度的刻度生成器。如果未指定值，则返回当前的刻度值，默认值为null。例如，要以特定值生成ticks：
+如果设置了values数组，则指定的值将用于ticks，而不是使用scale的自动tick生成器。如果值为空，则清除任何先前设置的显式刻度值，然后返回到刻度的刻度生成器。如果未指定值，则返回当前的刻度值，默认值为null。例如，要以特定值生成ticks：
 ```
 var xAxis = d3.axisBottom(x)
     .tickValues([1, 2, 3, 5, 8, 13, 21]);
@@ -196,22 +196,26 @@ If format is specified, sets the tick format function and returns the axis. If f
 
 See d3-format and d3-time-format for help creating formatters. For example, to display integers with comma-grouping for thousands:
 
-如果格式指定，设定tick格式函数并返回轴线。如果未指定format，则返回当前格式化的函数，默认为null。空格式表示应该使用比例的默认格式化程序，它是通过调用[scale .tickFormat](https://github.com/d3/d3-scale/blob/master/README.md#continuous_tickFormat)生成的。在这种情况下，通过指定的参数[axis .tickArguments](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickArguments)同样传递到scale的[tickFormat](https://github.com/d3/d3-scale/blob/master/README.md#continuous_tickFormat)。
+如果格式指定，设定tick格式函数并返回轴线。如果format缺省，则返回当前格式化的函数，默认为null。空格式表示应该使用比例的默认格式化程序，它是通过调用[scale .tickFormat](https://github.com/d3/d3-scale/blob/master/README.md#continuous_tickFormat)生成的。在这种情况下，通过指定的参数[axis .tickArguments](https://github.com/d3/d3-axis/blob/master/README.md#axis_tickArguments)同样传递到scale的[tickFormat](https://github.com/d3/d3-scale/blob/master/README.md#continuous_tickFormat)。
 请参阅[d3格式](https://github.com/d3/d3-format)和[d3时间格式](https://github.com/d3/d3-time-format)以获取帮助创建格式化程序的信息。例如，要使用逗号分组来显示数千个整数：
 ```
 axis.tickFormat(d3.format(",.0f"));
 ```
-更常见的是，格式说明符被传递给axis.ticks：
+More commonly, a format specifier is passed to [axis.ticks](https://github.com/d3/d3-axis/blob/master/README.md#axis_ticks):
+
+更常见的是，格式说明符被传递给[axis.ticks](https://github.com/d3/d3-axis/blob/master/README.md#axis_ticks)：
 ```
 axis.ticks(10, ",f");
 ```
+This has the advantage of setting the format precision automatically based on the tick interval.
+
 这具有基于tick间隔自动设置格式精度的优点。
 
 <a name="user-content-axis_tickSize" href="#axis_tickSize">#</a> axis.tickSize([size]) [<>](https://github.com/d3/d3-axis/blob/master/src/axis.js#L140)  
 
 If size is specified, sets the [inner](https://github.com/d3/d3-axis#axis_tickSizeInner) and [outer](https://github.com/d3/d3-axis#axis_tickSizeOuter) tick size to the specified value and returns the axis. If size is not specified, returns the current inner tick size, which defaults to 6.
 
-如果指定了大小，则将内部和外部刻度尺寸设置为指定的值并返回轴。如果未指定大小，则返回当前的内部刻度大小，默认值为6。
+如果size已设置，则将内部和外部刻度尺寸设置为指定的值并返回轴。如果size缺省，则返回当前的内部刻度大小，默认值为6。
 
 <a name="user-content-axis_tickSizeInner" href="#axis_tickSizeInner">#</a> axis.tickSizeInner([size]) [<>](https://github.com/d3/d3-axis/blob/master/src/axis.js#L144)  
 
