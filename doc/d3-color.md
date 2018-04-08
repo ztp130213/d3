@@ -61,7 +61,7 @@ cubehelix功能上亮度单调，而L*a*b和HCL在视觉上均匀。注意，HCl
 
 If you use NPM, `npm install d3-color`. Otherwise, download the [latest release](https://github.com/d3/d3-color/releases/latest). You can also load directly from [d3js.org](https://d3js.org), either as a [standalone library](https://d3js.org/d3-color.v1.min.js) or as part of [D3 4.0](https://github.com/d3/d3). AMD, CommonJS, and vanilla environments are supported. In vanilla, a `d3` global is exported:
 
-如果你用npm，`npm install d3-color`。否则，下载[最新版本](https://github.com/d3/d3-color/releases/latest)。你还可以直接从[d3js.org](https://d3js.org)下载，无论是作为[独立的包](https://d3js.org/d3-color.v1.min.js)还是[D3.4.0](https://github.com/d3/d3)的一部分，AMD，CommonJS和vanilla.js环境中都是支持的。在vanilla中，`d3`是全局出口：
+如果你用npm，`npm install d3-color`。否则，下载[最新版本](https://github.com/d3/d3-color/releases/latest)。你还可以直接从[d3js.org](https://d3js.org)下载，无论是作为[独立的包](https://d3js.org/d3-color.v1.min.js)还是[D3.4.0](https://github.com/d3/d3)的一部分，AMD，CommonJS和原生js环境中都是支持的。在原生中，`d3`是全局出口：
 
 ```html
 <script src="https://d3js.org/d3-color.v1.min.js"></script>
